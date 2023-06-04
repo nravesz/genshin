@@ -1,8 +1,8 @@
 {
-    "builds": [
-      { "src": "src/index.ts", "use": "@vercel/typescript" }
-    ],
-    "routes": [
-      { "src": "/(.*)", "dest": "src/index.ts" }
-    ]
-  }
+  "builds": [
+    { "src": "src/index.ts", "use": "@vercel/node" }
+  ],
+  "routes": [
+    { "src": "/(.*)", "dest": "src/index.ts" }
+  ]
+}
