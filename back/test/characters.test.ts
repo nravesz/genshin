@@ -1,4 +1,4 @@
-import CharacterRoster from '../src/characters/model/CharacterRoster';
+import { CharacterRoster } from '../src/characters/model/CharacterRoster';
 
 describe("CharacterPool", () => {
 
@@ -16,19 +16,6 @@ describe("CharacterPool", () => {
             };
             expect(hasCharacter).toBe(true);
         });
-
-        // it ("one of the character's id is alhaitham and name is Alhaitham", () => {
-        //     const characterPool = new CharacterPool();
-        //     const data = characterPool.getAllIDsAndNames();
-        //     var hasCharacter = false;
-        //     for (let c in data) {
-        //         if (data[c].id == "alhaitham" && data[c].name == "Alhaitham") {
-        //             hasCharacter = true;
-        //             break;
-        //         }
-        //     }
-        //     expect(hasCharacter).toBe(true);
-        // });
     });
 
 });

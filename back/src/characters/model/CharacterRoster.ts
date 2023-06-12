@@ -5,7 +5,7 @@ interface ICharacter {
     name: string;
 }
 
-export default class CharacterRoster {
+export class CharacterRoster {
     private characterList: Map<string, ICharacter> = new Map();
 
     addCharacters() {for (let c in characters) {
