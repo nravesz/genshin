@@ -1,0 +1,5 @@
+@import 'colors.css';
+
+.modal-body {
+    background-color: var(--background);
+};

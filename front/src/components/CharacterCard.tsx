@@ -1,4 +1,5 @@
 import Image from "react-bootstrap/esm/Image";
+import '../styles/CharacterCards.css';
 
 type CharacterCardPrompts = {
     id: string;
@@ -7,7 +8,9 @@ type CharacterCardPrompts = {
 
 const CharacterCard = ({id, name} : CharacterCardPrompts) => {
     return (
-        <div>
+        <div
+            className="character-card"
+        >
             <Image
                 src={`https://paimon.moe/images/characters/${id}.png`}
             />

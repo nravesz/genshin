@@ -3,19 +3,15 @@ import Modal from 'react-bootstrap/Modal';
 import { useQueryClient, useQuery } from 'react-query';
 import axios from 'axios';
 import CharacterRoster from './CharactersRoster';
-
-const fetchCharacters = async () => {
-  const { data } = await axios.get("https://genshin-planner-api.vercel.app/characters")
-  return data.data;
-};
+import '../styles/CharacterSelector.css';
 
 const CharacterSelector = () => {
-  const queryClient = useQueryClient();
-  const query = useQuery('characters', fetchCharacters);
-  console.log(query.data);
-  
-    return (
-		<Modal show={true}>
+	return (
+		<Modal
+			show={true}
+			size="lg"
+			scrollable={true}
+		>
 			<Modal.Header
 				closeButton
 			>
@@ -23,9 +19,9 @@ const CharacterSelector = () => {
 			</Modal.Header>
 	
 			<Modal.Body
-				style={{backgroundColor: 'green'}}
+				className='modal-body'
 			>
-				<CharacterRoster />
+					<CharacterRoster />
 			</Modal.Body>
 	
 			<Modal.Footer>

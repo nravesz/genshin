@@ -1,0 +1,8 @@
+.character-card {
+    justify-content: center;
+    align-items:center;
+    text-align: center;
+    padding: 1%;
+    width: 120px;
+    height: 170px
+};

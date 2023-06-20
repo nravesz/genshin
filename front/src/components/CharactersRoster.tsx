@@ -2,6 +2,7 @@ import React from "react";
 import { useQuery, useQueryClient } from "react-query";
 import { fetchCharacters } from "./CharactersRosterHelper";
 import CharacterCard from "./CharacterCard";
+import '../styles/CharacterRoster.css';
 
 interface Character {
     id: string;
@@ -22,14 +23,15 @@ const CharacterRoster = () => {
 
     return(
         <div
-            // style={{display: 'flex', flexWrap: 'wrap'}}
+            className="container"
         >
             {data?.map((character) => 
                 <CharacterCard
                     key={character.id}
                     id={character.id}
                     name={character.name}
-            />)}
+                />
+            )}
         </div>
     )
 };
