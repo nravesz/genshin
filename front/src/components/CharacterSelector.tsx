@@ -1,5 +1,7 @@
 import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
+import { Scrollbars } from 'react-custom-scrollbars-2';
+
 import { useQueryClient, useQuery } from 'react-query';
 import axios from 'axios';
 import CharacterRoster from './CharactersRoster';
@@ -10,7 +12,6 @@ const CharacterSelector = () => {
 		<Modal
 			show={true}
 			size="lg"
-			scrollable={true}
 		>
 			<Modal.Header
 				closeButton
@@ -18,11 +19,15 @@ const CharacterSelector = () => {
 				<Modal.Title>Modal title</Modal.Title>
 			</Modal.Header>
 	
-			<Modal.Body
-				className='modal-body'
+			<Scrollbars
+				style={{ height: '500px'}}
 			>
+				<Modal.Body
+					className='modal-body'
+				>
 					<CharacterRoster />
-			</Modal.Body>
+				</Modal.Body>
+			</Scrollbars>
 	
 			<Modal.Footer>
 				<Button variant="secondary">Close</Button>
