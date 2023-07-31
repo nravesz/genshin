@@ -1,7 +1,5 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
 import 'bootstrap/dist/css/bootstrap.css';
+import './App.css';
 import Home from './components/Home';
 import CharacterSelector from './components/CharacterSelector';
 import {
