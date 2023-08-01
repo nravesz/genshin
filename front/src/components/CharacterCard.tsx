@@ -1,5 +1,5 @@
 import Image from "react-bootstrap/esm/Image";
-import '../styles/CharacterCards.css';
+import '../styles/CharacterCards.scss';
 
 type CharacterCardPrompts = {
     id: string;
