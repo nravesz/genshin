@@ -2,7 +2,7 @@ import React from "react";
 import { useQuery, useQueryClient } from "react-query";
 import { fetchCharacters } from "./CharactersRosterHelper";
 import CharacterCard from "./CharacterCard";
-import '../styles/CharacterRoster.css';
+import styles from '../styles/CharacterRoster.module.css';
 
 interface Character {
     id: string;
@@ -23,7 +23,8 @@ const CharacterRoster = () => {
 
     return(
         <div
-            className="container-characters"
+            // className="container-characters"
+            className={styles.containerCharacters}
         >
             {data?.map((character) => 
                 <CharacterCard

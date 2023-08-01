@@ -5,7 +5,7 @@ import { Scrollbars } from 'react-custom-scrollbars-2';
 import { useQueryClient, useQuery } from 'react-query';
 import axios from 'axios';
 import CharacterRoster from './CharactersRoster';
-import '../styles/CharacterSelector.css';
+import styles from '../styles/CharacterSelector.module.css';
 
 const CharacterSelector = () => {
 	return (
@@ -23,7 +23,8 @@ const CharacterSelector = () => {
 				style={{ height: '500px'}}
 			>
 				<Modal.Body
-					className='modal-characters-body'
+					// className='modal-characters-body'
+					className={styles.modalCharactersBody}
 				>
 					<CharacterRoster />
 				</Modal.Body>
