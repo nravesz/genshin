@@ -1,16 +1,16 @@
 @import 'colors.css';
 
-.modal-body {
+.modal-characters-body {
     background-color: var(--background);
 };
 
-.modal-body::-webkit-scrollbar {
+.modal-characters-body::-webkit-scrollbar {
     width: 5px;
     background-color: #111122;
 
 }
 
-.modal-body::-webkit-scrollbar-thumb {
+.modal-characters-body::-webkit-scrollbar-thumb {
     background-color: #343443;
 }
 

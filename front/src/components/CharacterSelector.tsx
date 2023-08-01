@@ -23,7 +23,7 @@ const CharacterSelector = () => {
 				style={{ height: '500px'}}
 			>
 				<Modal.Body
-					className='modal-body'
+					className='modal-characters-body'
 				>
 					<CharacterRoster />
 				</Modal.Body>

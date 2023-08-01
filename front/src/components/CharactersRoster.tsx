@@ -23,7 +23,7 @@ const CharacterRoster = () => {
 
     return(
         <div
-            className="container"
+            className="container-characters"
         >
             {data?.map((character) => 
                 <CharacterCard
