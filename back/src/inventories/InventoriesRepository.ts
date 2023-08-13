@@ -9,6 +9,28 @@ type Item = {
 
 export class InventoriesRepository {
 
+    async getInventory(email: string) {
+        try {
+            const inventoriesC = client.db('UsersDB').collection('Inventories');
+            const filter = { email: email };
+            const result = await inventoriesC.findOne(filter);
+            if (result) {
+                const keyToRemove = ['_id', 'email'];
+                for (let key of keyToRemove) {
+                    if (result.hasOwnProperty(key)) {
+                        delete result[key];
+                    };
+                };
+                return result;
+            } else {
+                return null;
+            };
+        } catch (error) {
+            console.log(error);
+            throw error;
+        };
+    };
+
     async createNewInventory(email: string) {
         const inventory: Item = {};
 
@@ -23,8 +45,10 @@ export class InventoriesRepository {
             const inventoriesC = client.db('UsersDB').collection('Inventories');
             const result = await inventoriesC.findOne({ email: email });
             if (!result) {
-                inventoriesC.insertOne({ email, ...inventory });
-            };
+                return inventoriesC.insertOne({ email, ...inventory });
+            } else {
+                return null;
+            }
         } catch (error) {
             console.log(error);
             throw error;

@@ -8,6 +8,10 @@ export class InventoriesController {
         this.inventoryService = inventoryService;
     };
 
+    getInventory(req: Request, res: Response) {
+        this.inventoryService.getInventory(req, res);
+    };
+
     createNewInventory(req: Request, res: Response) {
         this.inventoryService.createNewInventory(req, res);
     };

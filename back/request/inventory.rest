@@ -1,12 +1,7 @@
 POST http://localhost:3001/inventories/
 
 ###
-PUT http://localhost:3001/inventories
-content-type: application/json
-
-{
-    "character": "Amber"
-}
+GET http://localhost:3001/inventories
 
 ###
 PUT http://localhost:3001/inventories

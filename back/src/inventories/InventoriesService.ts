@@ -8,13 +8,36 @@ export class InventoriesService {
         this.inventoryRepository = inventoryRepository;
     };
 
-    createNewInventory(req: Request, res: Response) {
+    async getInventory(req: Request, res: Response) {
         const email = "example@gmail.com"; // TODO: get email from request
         try {
-            this.inventoryRepository.createNewInventory(email);
+            const inventory = await this.inventoryRepository.getInventory(email);
             res.status(200).json({
-                message: "New inventory created"
+                message: "Inventory fetched",
+                inventory: inventory
             });
+        } catch (error) {
+            console.log(error);
+            res.status(500).json({
+                message: "Error fetching inventory",
+                error: error
+            });
+        };
+    };
+
+    async createNewInventory(req: Request, res: Response) {
+        const email = "example@gmail.com"; // TODO: get email from request
+        try {
+            const result = await this.inventoryRepository.createNewInventory(email);
+            if (result) {
+                res.status(200).json({
+                    message: "New inventory created"
+                });
+            } else {
+                res.status(200).json({
+                    message: "Inventory already exists"
+                });
+            }
         } catch (error) {
             console.log(error);
             res.status(500).json({
