@@ -12,4 +12,8 @@ router.post('/', (req: Request, res: Response) => {
     inventoriesController.createNewInventory(req, res);
 });
 
+router.put('/', (req: Request, res: Response) => {
+    inventoriesController.modifyInventory(req, res);
+});
+
 export default router;

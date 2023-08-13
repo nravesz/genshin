@@ -1,1 +1,20 @@
-POST http://localhost:3001/inventories
+POST http://localhost:3001/inventories/
+
+###
+PUT http://localhost:3001/inventories
+content-type: application/json
+
+{
+    "character": "Amber"
+}
+
+###
+PUT http://localhost:3001/inventories
+content-type: application/json
+
+{
+    "items": {
+        "heros_wit": 30,
+        "adventurers_experience": 10
+    }
+}

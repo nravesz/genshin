@@ -1,7 +1,7 @@
 import { itemList } from "../../data/itemList";
 import { client } from "..";
 
-const exceptions = ['any_weapon_1', 'any_weapon_2', 'any_weapon_3'];
+const exceptions = ['unknown', 'none', 'any_weapon_1', 'any_weapon_2', 'any_weapon_3'];
 
 type Item = {
     [key: string]: number;
@@ -23,7 +23,23 @@ export class InventoriesRepository {
             const inventoriesC = client.db('UsersDB').collection('Inventories');
             const result = await inventoriesC.findOne({ email: email });
             if (!result) {
-                inventoriesC.insertOne({ email, inventory });
+                inventoriesC.insertOne({ email, ...inventory });
+            };
+        } catch (error) {
+            console.log(error);
+            throw error;
+        };
+    };
+
+    async modifyInventory(email: string, items: Item) {
+        try {
+            const inventoriesC = client.db('UsersDB').collection('Inventories');
+            const result = await inventoriesC.findOne({ email: email });
+            if (result) {
+                console.log(items);
+                const filter = { email: email };
+                const update = { $set: items };
+                inventoriesC.updateOne(filter, update);
             };
         } catch (error) {
             console.log(error);

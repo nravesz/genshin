@@ -12,4 +12,7 @@ export class InventoriesController {
         this.inventoryService.createNewInventory(req, res);
     };
 
+    modifyInventory(req: Request, res: Response) {
+        this.inventoryService.modifyInventory(req, res);
+    };
 };

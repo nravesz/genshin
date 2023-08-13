@@ -22,5 +22,22 @@ export class InventoriesService {
                 error: error
             });
         }
-    }
+    };
+
+    modifyInventory(req: Request, res: Response) {
+        try {
+            const email = "example@gmail.com"; // TODO: get email from request
+            const items = req.body.items;
+            this.inventoryRepository.modifyInventory(email, items);
+            res.status(200).json({
+                message: "Inventory modified"
+            });
+        } catch (error) {
+            console.log(error);
+            res.status(500).json({
+                message: "Error modifying inventory",
+                error: error
+            });
+        }
+    };
 };
