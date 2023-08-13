@@ -60,7 +60,6 @@ export class InventoriesRepository {
             const inventoriesC = client.db('UsersDB').collection('Inventories');
             const result = await inventoriesC.findOne({ email: email });
             if (result) {
-                console.log(items);
                 const filter = { email: email };
                 const update = { $set: items };
                 inventoriesC.updateOne(filter, update);
