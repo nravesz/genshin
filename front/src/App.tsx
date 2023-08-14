@@ -1,6 +1,7 @@
 import Home from './components/Home';
 import CharacterSelector from './components/CharacterSelector';
 import Inventory from './components/inventory/Inventory';
+import MenuModal from './components/menuModal/MenuModal';
 import {
   QueryClient,
   QueryClientProvider,
@@ -18,6 +19,7 @@ function App() {
           <Home />
           {/* <CharacterSelector /> */}
           <Inventory />
+          <MenuModal />
         </QueryClientProvider>
       </Provider>
     </div>
