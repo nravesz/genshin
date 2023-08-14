@@ -3,7 +3,7 @@ import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
 import { Scrollbars } from 'react-custom-scrollbars-2';
 
-import CharacterRoster from '../CharactersRoster';
+import CharacterRoster from '../charactersRoster/CharactersRoster';
 
 import { useSelector, useDispatch } from 'react-redux';
 import { RootState, AppDispatch } from '../../redux/store';
