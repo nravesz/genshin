@@ -5,7 +5,7 @@ import { Scrollbars } from 'react-custom-scrollbars-2';
 import { useQueryClient, useQuery } from 'react-query';
 import axios from 'axios';
 import CharacterRoster from './CharactersRoster';
-import '../styles/CharacterSelector.scss';
+import './styles/CharacterSelector.scss';
 
 const CharacterSelector = () => {
 	return (
