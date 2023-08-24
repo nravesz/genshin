@@ -1,5 +1,4 @@
 import Home from './components/Home';
-import Inventory from './components/inventory/Inventory';
 import MenuModal from './components/menuModal/MenuModal';
 import {
   QueryClient,

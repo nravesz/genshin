@@ -14,7 +14,7 @@ export class InventoriesService {
             const inventory = await this.inventoryRepository.getInventory(email);
             res.status(200).json({
                 message: "Inventory fetched",
-                inventory: inventory
+                data: inventory
             });
         } catch (error) {
             console.log(error);

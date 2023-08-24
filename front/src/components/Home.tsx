@@ -21,7 +21,10 @@ const Home = () => {
             </Button>
 
             <Button
-                onClick={() => dispatch(openModal())}
+                onClick={() => {
+                    dispatch(setComponent('inventory'));
+                    dispatch(openModal());
+                }}
             >
                 Manage inventory
             </Button>
