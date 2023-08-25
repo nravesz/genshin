@@ -1,0 +1,21 @@
+.container-inventory {
+    height: 90%;
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+};
+
+.inventory-element{
+    width: 60px;
+}
+
+.inventory-image {
+    width: 40px;
+    height: 40px
+}
+
+.inventory-form {
+    width: 50px;
+}
