@@ -3,5 +3,5 @@ import InventoryElement from "./InventoryElement";
 
 export {
     Inventory,
-    InventoryElement
+    InventoryElement,
 };
