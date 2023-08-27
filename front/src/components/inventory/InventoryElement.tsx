@@ -18,21 +18,17 @@ const InventoryElement = ({id, quantity}: InventoryElementProps) => {
 	const dispatch = useDispatch<AppDispatch>();
 
     const handleValueChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-
-            if (event.target.value != '') {
-                const value: number = parseInt(event.target.value);
-                if (value < 0) {
-                    setValue(0);
-                } else {
-                    const inventoryElement: IInventoryElement = {
-                        id: id,
-                        quantity: value
-                    }
-                    setValue(value);
-                    dispatch(addElement(inventoryElement));
-                };
+        const value: number = parseInt(event.target.value);
+        if (value < 0) {
+            setValue(0);
+        } else {
+            const inventoryElement: IInventoryElement = {
+                id: id,
+                quantity: value
             }
-
+            setValue(value);
+            dispatch(addElement(inventoryElement));
+        };
     };
 
     return (
