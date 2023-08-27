@@ -22,11 +22,16 @@ export const modalSlice = createSlice({
             state.inventory[action.payload.id] = action.payload.quantity;
             console.log(JSON.stringify(state.inventory));
         },
+
         clearInventory: (state) => {
             state.inventory = {};
-        }
+        },
+        
+        getInventory: (state) => {
+            return state;
+        },
     }
 });
 
-export const { addElement, clearInventory } = modalSlice.actions;
+export const { addElement, clearInventory, getInventory } = modalSlice.actions;
 export default modalSlice.reducer;

@@ -51,6 +51,7 @@ export class InventoriesService {
         try {
             const email = "example@gmail.com"; // TODO: get email from request
             const items = req.body.items;
+            console.log(items);
             this.inventoryRepository.modifyInventory(email, items);
             res.status(200).json({
                 message: "Inventory modified"
