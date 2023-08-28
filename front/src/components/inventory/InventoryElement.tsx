@@ -13,22 +13,22 @@ interface InventoryElementProps {
 }
 
 const InventoryElement = ({id, quantity}: InventoryElementProps) => {
-    const [value, setValue] = React.useState<number>(quantity);
-	const modalState = useSelector((state: RootState) => state.menuModal.value);
+    const [value, setValue] = React.useState<string>(quantity.toString());
 	const dispatch = useDispatch<AppDispatch>();
 
     const handleValueChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-        const value: number = parseInt(event.target.value);
-        if (value < 0) {
-            setValue(0);
-        } else {
-            const inventoryElement: IInventoryElement = {
-                id: id,
-                quantity: value
-            }
-            setValue(value);
-            dispatch(addElement(inventoryElement));
+        const newValue = parseInt(event.target.value);
+        setValue(isNaN(newValue) ? "" : newValue.toString());
+    };
+
+    const handleBlur = () => {
+        const newValue = isNaN(parseInt(value)) ? "0" : value;
+        const inventoryElement: IInventoryElement = {
+            id: id,
+            quantity: parseInt(newValue)
         };
+        setValue(newValue);
+        dispatch(addElement(inventoryElement));
     };
 
     return (
@@ -40,10 +40,11 @@ const InventoryElement = ({id, quantity}: InventoryElementProps) => {
                 src={`https://paimon.moe/images/items/${id}.png`}
             />
             <input
-                type="number"
+                //type="number"
                 className="inventory-form"
                 value={value}
                 onChange={handleValueChange}
+                onBlur={handleBlur}
             >
 
             </input>
