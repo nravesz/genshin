@@ -1,6 +1,6 @@
 import { useQuery, useQueryClient } from "react-query";
-import type  { ICharacter, IRoster } from ".";
-import CharacterCard from "./CharacterCard";
+import { CharacterCard } from ".";
+import type  { IRoster } from ".";
 import './styles/CharacterRoster.scss';
 
 type RosterPrompts = {
