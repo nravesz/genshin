@@ -3,11 +3,13 @@ import { createSlice, PayloadAction } from "@reduxjs/toolkit"
 interface ModalState {
     value: boolean;
     component: string;
+    updateInventory: boolean;
 };
 
 const initialState: ModalState = {
     value: false,
-    component: "characters"
+    component: "characters",
+    updateInventory: false
 };
 
 export const modalSlice = createSlice({
@@ -22,9 +24,12 @@ export const modalSlice = createSlice({
         },
         setComponent(state, action: PayloadAction<string>) {
             state.component = action.payload;
+        },
+        updateInventory(state, action: PayloadAction<boolean>) {
+            state.updateInventory = action.payload;
         }
     }
 });
 
-export const { closeModal, openModal, setComponent } = modalSlice.actions;
+export const { closeModal, openModal, setComponent, updateInventory } = modalSlice.actions;
 export default modalSlice.reducer;

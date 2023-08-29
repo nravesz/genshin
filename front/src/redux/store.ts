@@ -1,11 +1,11 @@
 import { configureStore } from '@reduxjs/toolkit'
-import InventoryModalReducer from './reducers/InventoryModalReducer'
 import MenuModalReducer from './reducers/MenuModalReducer'
+import InventoryReducer from './reducers/InventoryReducer';
 
 export const store = configureStore({
   reducer: {
-    inventoryModal: InventoryModalReducer,
     menuModal: MenuModalReducer,
+    inventory: InventoryReducer
   },
 })
 

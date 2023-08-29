@@ -1,0 +1,2 @@
+redux pattern
+container/component pattern

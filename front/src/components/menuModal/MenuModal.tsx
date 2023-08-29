@@ -7,9 +7,8 @@ import CharacterRoster from '../charactersRoster/CharactersRoster';
 
 import { useSelector, useDispatch } from 'react-redux';
 import { RootState, AppDispatch } from '../../redux/store';
-import { closeModal, openModal } from '../../redux/reducers/MenuModalReducer';
-import InventoryModal from '../inventory/Inventory';
-
+import { closeModal, updateInventory } from '../../redux/reducers/MenuModalReducer';
+import InventoryContainer from '../inventory/InventoryContainer';
 
 interface Components {
     [key: string]: JSX.Element;
@@ -22,7 +21,7 @@ const MenuModal = () => {
 
     const components: Components = {
         'characters': <CharacterRoster />,
-        'inventory': <InventoryModal />
+        'inventory': <InventoryContainer />
     }
 
 	return (
@@ -51,7 +50,15 @@ const MenuModal = () => {
 					variant="secondary"
 					onClick={() => dispatch(closeModal())}
 				>Close</Button>
-				<Button variant="primary">Save changes</Button>
+				<Button
+					variant="primary"
+					onClick={() => {
+						dispatch(updateInventory(true))
+						dispatch(closeModal());
+					}}
+				>
+					Save changes
+				</Button>
 			</Modal.Footer>
 		</Modal>
     )

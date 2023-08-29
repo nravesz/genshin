@@ -2,7 +2,6 @@ import Button from 'react-bootstrap/Button';
 
 import { useSelector, useDispatch } from 'react-redux';
 import { RootState, AppDispatch } from '../redux/store';
-//import { closeModal, openModal } from '../redux/reducers/InventoryModalReducer';
 import { closeModal, openModal, setComponent } from '../redux/reducers/MenuModalReducer';
 
 
@@ -21,7 +20,10 @@ const Home = () => {
             </Button>
 
             <Button
-                onClick={() => dispatch(openModal())}
+                onClick={() => {
+                    dispatch(setComponent('inventory'));
+                    dispatch(openModal());
+                }}
             >
                 Manage inventory
             </Button>
