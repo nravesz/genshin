@@ -20,7 +20,6 @@ export const modalSlice = createSlice({
     reducers: {
         addElement: (state, action: PayloadAction<IInventoryElement>) => {
             state.inventory[action.payload.id] = action.payload.quantity;
-            console.log(JSON.stringify(state.inventory));
         },
 
         clearInventory: (state) => {

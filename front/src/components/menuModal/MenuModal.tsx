@@ -3,12 +3,12 @@ import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
 import { Scrollbars } from 'react-custom-scrollbars-2';
 
-import CharacterRoster from '../charactersRoster/CharactersRoster';
+import { RosterContainer } from '../roster';
+import { InventoryContainer } from '../inventory';
 
 import { useSelector, useDispatch } from 'react-redux';
 import { RootState, AppDispatch } from '../../redux/store';
 import { closeModal, updateInventory } from '../../redux/reducers/MenuModalReducer';
-import InventoryContainer from '../inventory/InventoryContainer';
 
 interface Components {
     [key: string]: JSX.Element;
@@ -20,7 +20,7 @@ const MenuModal = () => {
 	const dispatch = useDispatch<AppDispatch>();
 
     const components: Components = {
-        'characters': <CharacterRoster />,
+        'characters': <RosterContainer />,
         'inventory': <InventoryContainer />
     }
 

@@ -1,16 +1,16 @@
 import { Request, Response } from "express";
-import { CharacterRepository } from ".";
+import { RosterRepository } from ".";
 
-export class CharactersService {
-    private charactersRepository: CharacterRepository;
+export class RosterService {
+    private rosterRepository: RosterRepository;
 
-    constructor(charactersRepository: CharacterRepository) {
-        this.charactersRepository = charactersRepository;
+    constructor(charactersRepository: RosterRepository) {
+        this.rosterRepository = charactersRepository;
     };
 
     getRosterBasicInfo(req: Request, res: Response) {
         try {
-            const data = this.charactersRepository.getRosterBasicInfo();
+            const data = this.rosterRepository.getRosterBasicInfo();
             res.status(200).json({
                 message: "Roster fetched",
                 data: data

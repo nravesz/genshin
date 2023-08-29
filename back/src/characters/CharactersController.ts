@@ -9,11 +9,7 @@ export class CharactersController {
     };
 
     getCharactersBasicInfo(req: Request, res: Response) {
-        const data = this.charactersService.getCharactersBasicInfo();
-        res.send({
-            message: "Characters basic info",
-            data: data
-        });
+        this.charactersService.getRosterBasicInfo(req, res);
     };
 
 };
