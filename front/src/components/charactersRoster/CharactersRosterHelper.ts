@@ -1,6 +1,6 @@
 import axios from "axios";
 
 export const fetchCharacters = async () => {
-    const { data } = await axios.get("https://genshin-planner-api.vercel.app/characters")
+    const { data } = await axios.get("http://localhost:3001/characters")
     return data.data;
 };
