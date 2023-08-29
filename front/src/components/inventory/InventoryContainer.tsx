@@ -14,7 +14,8 @@ export interface IInventory {
 
 const InventoryContainer = () => {
     const queryClient = useQueryClient();
-    const { data, isLoading, isError } = useQuery<IInventory>('inventory', fetchData);
+    // const { data, isLoading, isError } = useQuery<IInventory>('inventory', fetchData);
+    const [data, setData] = React.useState<IInventory>();
     const dataUpdated = useSelector((state: RootState) => state.inventory.inventory);
     const update = useSelector((state: RootState) => state.menuModal.updateInventory);
     const dispatch = useDispatch<AppDispatch>();
@@ -33,7 +34,8 @@ const InventoryContainer = () => {
 
     async function fetchData () {
         const response = await axios.get("http://localhost:3001/inventories");
-        return response.data.data;
+        setData(response.data.data);
+        //return response.data.data;
     };
     
     async function updateData () {
@@ -47,8 +49,8 @@ const InventoryContainer = () => {
             {data ? (
                 <Inventory
                     data={data}
-                    isLoading={isLoading}
-                    isError={isError}
+                    isLoading={false}
+                    isError={false}
                 />
             ) : (
                 <div>loading...</div>
