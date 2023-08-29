@@ -1,4 +1,4 @@
-import { ICharacter } from ".";
+import { ICharacter } from "..";
 
 interface IRoster {
     [key: string]: ICharacter;
