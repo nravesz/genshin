@@ -20,7 +20,7 @@ app.get('/', (req: Request, res: Response) => {
   res.send('Express + TypeScript Server');
 });
 
-app.use('/characters', charactersRouter);
+app.use('/roster', charactersRouter);
 app.use('/inventories', inventoriesRouter);
 
 app.listen(port, () => {
