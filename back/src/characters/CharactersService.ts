@@ -1,5 +1,5 @@
 import { Request, Response } from "express";
-import { CharacterRoster, CharacterRepository } from ".";
+import { CharacterRepository } from ".";
 
 export class CharactersService {
     private charactersRepository: CharacterRepository;

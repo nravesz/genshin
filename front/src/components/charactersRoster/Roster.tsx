@@ -19,7 +19,6 @@ const Roster= ({data, isLoading, isError}: RosterPrompts) => {
         return <div>Error fetching characters</div>;
       }
 
-      console.log(data);
     return(
         <div
             className="container-characters"
