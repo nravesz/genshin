@@ -1,11 +1,11 @@
 import { CharactersController } from "./CharactersController";
 import { CharactersService } from "./CharactersService";
-import { CharacterRepository } from "./CharacterRepository";
+import { CharactersRepository } from "./CharactersRepository";
 import router from "./characters";
 
 export {
     router as charactersRouter,
     CharactersController,
     CharactersService,
-    CharacterRepository
+    CharactersRepository
 };

@@ -1,15 +1,15 @@
 import express from "express";
 import { Request, Response } from "express";
-import { CharacterRepository, CharactersService, CharactersController } from "./index";
+import { CharactersRepository, CharactersService, CharactersController } from "./index";
 
 const router = express.Router();
 
-const characterRepository = new CharacterRepository();
-const charactersService = new CharactersService(characterRepository);
+const charactersRepository = new CharactersRepository();
+const charactersService = new CharactersService(charactersRepository);
 const charactersController = new CharactersController(charactersService);
 
-router.get('/', (req: Request, res: Response) => {
-    charactersController.getCharactersBasicInfo(req, res);
+router.post('/', (req: Request, res: Response) => {
+    charactersController.addCharacter(req, res);
 });
 
 export default router;

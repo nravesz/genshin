@@ -3,7 +3,8 @@ import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
 import { Scrollbars } from 'react-custom-scrollbars-2';
 
-import { RosterContainer } from '../roster';
+//import { RosterContainer } from '../roster';
+import RosterContainer from '../roster/RosterContainer';
 import { InventoryContainer } from '../inventory';
 
 import { useSelector, useDispatch } from 'react-redux';

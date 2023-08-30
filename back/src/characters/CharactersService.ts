@@ -1,25 +1,24 @@
 import { Request, Response } from "express";
-import { CharacterRepository } from ".";
+import { CharactersRepository } from ".";
 
 export class CharactersService {
-    private charactersRepository: CharacterRepository;
+    private charactersRepository: CharactersRepository;
 
-    constructor(charactersRepository: CharacterRepository) {
+    constructor(charactersRepository: CharactersRepository) {
         this.charactersRepository = charactersRepository;
     };
 
-    getRosterBasicInfo(req: Request, res: Response) {
+    addCharacter(req: Request, res: Response) {
         try {
-            const data = this.charactersRepository.getRosterBasicInfo();
-            res.status(200).json({
-                message: "Roster fetched",
-                data: data
-            });
+            const character = req.body.character;
+            this.charactersRepository.addCharacter(character);
+            res.status(200).send(
+                { message: "Character added" }
+            );
         } catch (error) {
             console.log(error);
-            res.status(500).json({
-                message: "Error fetching roster",
-                error: error
+            res.status(500).send({
+                message: "Error adding character"
             });
         };
     };
