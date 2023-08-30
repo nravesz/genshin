@@ -1,8 +1,7 @@
 import { useQuery, useQueryClient } from "react-query";
 import axios from "axios";
 import type  { IRoster } from ".";
-// import { Roster } from ".";
-import Roster from "./Roster";
+import { Roster } from ".";
 import './styles/CharacterRoster.scss';
 
 const fetchCharacters = async () => {

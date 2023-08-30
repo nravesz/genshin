@@ -3,8 +3,7 @@ import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
 import { Scrollbars } from 'react-custom-scrollbars-2';
 
-//import { RosterContainer } from '../roster';
-import RosterContainer from '../roster/RosterContainer';
+import { RosterContainer } from '../roster';
 import { InventoryContainer } from '../inventory';
 
 import { useSelector, useDispatch } from 'react-redux';
@@ -23,7 +22,7 @@ const MenuModal = () => {
     const components: Components = {
         'characters': <RosterContainer />,
         'inventory': <InventoryContainer />
-    }
+    };
 
 	return (
 		<Modal
