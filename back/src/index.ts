@@ -3,7 +3,7 @@ import cors from 'cors';
 import dotenv from 'dotenv';
 import { MongoClient } from 'mongodb';
 
-import { charactersRouter } from './characters';
+import { rosterRouter } from './roster';
 import { inventoriesRouter } from './inventories';
 
 dotenv.config();
@@ -20,7 +20,7 @@ app.get('/', (req: Request, res: Response) => {
   res.send('Express + TypeScript Server');
 });
 
-app.use('/roster', charactersRouter);
+app.use('/roster', rosterRouter);
 app.use('/inventories', inventoriesRouter);
 
 app.listen(port, () => {

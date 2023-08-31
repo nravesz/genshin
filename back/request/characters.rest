@@ -3,5 +3,6 @@ POST http://localhost:3001/roster
 content-type: application/json
 
 {
-    "character": "albedo"
+    "character": "albedo",
+    "ascension": "3"
 }
