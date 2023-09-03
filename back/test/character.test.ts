@@ -33,9 +33,15 @@ describe("Character", () => {
             expect(ascensionItems.sand_grease_pupa).toStrictEqual(3);
         });
 
-        it ("sLvL 20 f, eLvL 20 t ascension show be 3", () => {
+        it ("sLvL 20 f, eLvL 40 t ascension show be 13", () => {
             const character = new Character();
-            const ascensionItems = character.getAscensionItems("alhaitham", 21, true, 40, true);
+            const ascensionItems = character.getAscensionItems("alhaitham", 20, false, 40, true);
+            expect(ascensionItems.sand_grease_pupa).toStrictEqual(13);
+        });
+
+        it ("sLvL 20 t, eLvL 40 t ascension show be 10", () => {
+            const character = new Character();
+            const ascensionItems = character.getAscensionItems("alhaitham", 20, true, 40, true);
             expect(ascensionItems.sand_grease_pupa).toStrictEqual(10);
         });
 
