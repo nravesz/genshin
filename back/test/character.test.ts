@@ -54,38 +54,27 @@ describe("Character", () => {
     });
 
     describe("getAscensionLvLs", () => {
-        it ("lvl 10 without ascension should be 0", () => {
+        it ("lvl 10 should be 0", () => {
             const character = new Character();
-            const ascensionLvL = character.getAscensionLvLs(10, false);
+            const ascensionLvL = character.getAscensionLvLs(10);
             expect(ascensionLvL).toBe(0);
         });
 
-        it ("lvl 20 without ascension should be 0", () => {
+        it ("lvl 20 should be 1", () => {
             const character = new Character();
-            const ascensionLvL = character.getAscensionLvLs(20, false);
-            expect(ascensionLvL).toBe(0);
-        });
-
-        it ("lvl 20 with ascension should be 1", () => {
-            const character = new Character();
-            const ascensionLvL = character.getAscensionLvLs(20, true);
+            const ascensionLvL = character.getAscensionLvLs(20);
             expect(ascensionLvL).toBe(1);
         });
 
-        it ("lvl 40 without ascension should be 1", () => {
+        it ("lvl 40 should be 1", () => {
             const character = new Character();
-            const ascensionLvL = character.getAscensionLvLs(40, false);
-            expect(ascensionLvL).toBe(1);
-        });
-
-        it ("lvl 40 with ascension should be 2", () => {
-            const character = new Character();
-            const ascensionLvL = character.getAscensionLvLs(40, true);
+            const ascensionLvL = character.getAscensionLvLs(40);
             expect(ascensionLvL).toBe(2);
         });
-        it ("lvl 50 with ascension should be 3", () => {
+
+        it ("lvl 50 should be 3", () => {
             const character = new Character();
-            const ascensionLvL = character.getAscensionLvLs(50, true);
+            const ascensionLvL = character.getAscensionLvLs(50);
             expect(ascensionLvL).toBe(3);
         });
     });
