@@ -45,10 +45,16 @@ describe("Character", () => {
             expect(ascensionItems.sand_grease_pupa).toStrictEqual(10);
         });
 
-        it ("sLvL 20 t, eLvL 40 t ascension show be 10", () => {
+        it ("sLvL 40 f, eLvL 70 t ascension show be 105", () => {
             const character = new Character();
             const ascensionItems = character.getAscensionItems("alhaitham", 40, false, 70, true);
             expect(ascensionItems.sand_grease_pupa).toStrictEqual(105);
+        });
+
+        it ("sLvL 20 t, eLvL 40 t money should be", () => {
+            const character = new Character();
+            const ascensionItems = character.getAscensionItems("alhaitham", 40, false, 70, true);
+            expect(ascensionItems.money).toStrictEqual(280000);
         });
 
     });

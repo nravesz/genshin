@@ -26,14 +26,18 @@ export class Character {
             return resourses;
         };
         var start = (startIsAscended ? ascensionStartLvL + 1 : ascensionStartLvL) - 1;
-        console.log("start", start);
         var end = (endIsAscended ? ascensionEndLvL + 1 : ascensionEndLvL) - 1;
-        console.log("end", end);
         for (let i = start; i < end; i++) {
             if (i === -1) {
                 continue;
             }
             const itemsPerAscension = ascension[i].items;
+            const money = ascension[i].mora;
+            if (resourses["money"]) {
+                resourses["money"] += money;
+            } else {
+                resourses["money"] = money;
+            };
             for (let items in itemsPerAscension) {
                 const item: Item = itemsPerAscension[items];
                 if (item.item.id != "none") {
