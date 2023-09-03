@@ -14,74 +14,7 @@ interface ItemData {
     name: string;
 }
 
-
-
 export class Character {
-    // getAscensionItems (id: string, startLvL: number, startIsAscended: boolean,
-    //     endLvL: number, endIsAscended: boolean) {
-    //     if (this.isValidAscensionLvL(ascensionStartLvL)
-    //         && this.isValidAscensionLvL(ascensionEndLvL)
-    //         && ascensionStartLvL <= ascensionEndLvL
-    //     ) {
-    //         const resourses: Resourses = {};
-    //         const character = characters[id];
-    //         const ascension = character.ascension;
-    //         if (ascensionStartLvL == 0 && ascensionEndLvL == 0) {
-    //             return resourses;
-    //         }
-    //         for (let i = ascensionStartLvL; i < ascensionEndLvL; i++) {
-    //             const itemsPerAscension = ascension[i].items;
-    //             for (let items in itemsPerAscension) {
-    //                 const item: Item = itemsPerAscension[items];
-    //                 if (item.item.id != "none") {
-    //                     if (resourses[item.item.id]) {
-    //                         resourses[item.item.id] += item.amount;
-    //                     } else {
-    //                         resourses[item.item.id] = item.amount;
-    //                     };
-    //                 };
-    //             };
-    //         };
-    //         return resourses;
-    //     } else {
-    //         throw new Error("Invalid ascension level");
-    //     }
-    // };
-
-    // getAscensionItems (id: string, startLvL: number, startIsAscended: boolean,
-    //     endLvL: number, endIsAscended: boolean) {
-        // var ascensionStartLvL = this.getAscensionLvLs(startLvL, startIsAscended);
-        // console.log("ascensionStartLvL", ascensionStartLvL)
-        // var ascensionEndLvL = this.getAscensionLvLs(endLvL, endIsAscended);
-        // console.log("ascensionEndLvL", ascensionEndLvL);
-        // const resourses: Resourses = {};
-        // const character = characters[id];
-        // const ascension = character.ascension;
-        // if (ascensionStartLvL == 0 && ascensionEndLvL == 0) {
-        //     return resourses;
-        // };
-        // // if (ascensionStartLvL == 0) {
-        // //     ascensionStartLvL = 1;
-        // // }
-        // for (let i = ascensionStartLvL - 1; i < ascensionEndLvL; i++) {
-        //     if (i === -1 || (i + 1 === ascensionStartLvL && startIsAscended)) {
-        //         continue;
-        //     };
-        //     const itemsPerAscension = ascension[i].items;
-        //     for (let items in itemsPerAscension) {
-        //         const item: Item = itemsPerAscension[items];
-        //         if (item.item.id != "none") {
-        //             if (resourses[item.item.id]) {
-        //                 resourses[item.item.id] += item.amount;
-        //             } else {
-        //                 resourses[item.item.id] = item.amount;
-        //             };
-        //         };
-        //     };
-        // };
-        // return resourses;
-    // };
-
     getAscensionItems (id: string, startLvL: number, startIsAscended: boolean,
         endLvL: number, endIsAscended: boolean) {
         var ascensionStartLvL: number = this.getAscensionLvLs(startLvL);
@@ -116,7 +49,6 @@ export class Character {
     };
 
     getAscensionLvLs (lvl: number) {
-            //const ascensionStartLvL = startIsAscended ? start + 1 : start;
             var ascensionStartLvl: number;
             if (lvl < 20) {
                 ascensionStartLvl = 0;
