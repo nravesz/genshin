@@ -64,7 +64,7 @@ export class Character {
         //     ascensionStartLvL = 1;
         // }
         for (let i = ascensionStartLvL - 1; i < ascensionEndLvL; i++) {
-            if (i === -1) {
+            if (i === -1 || (i + 1 === ascensionStartLvL && startIsAscended)) {
                 continue;
             };
             const itemsPerAscension = ascension[i].items;

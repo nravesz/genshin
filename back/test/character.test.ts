@@ -45,6 +45,12 @@ describe("Character", () => {
             expect(ascensionItems.sand_grease_pupa).toStrictEqual(10);
         });
 
+        it ("sLvL 20 t, eLvL 40 t ascension show be 10", () => {
+            const character = new Character();
+            const ascensionItems = character.getAscensionItems("alhaitham", 40, false, 70, true);
+            expect(ascensionItems.sand_grease_pupa).toStrictEqual(105);
+        });
+
     });
 
     describe("getAscensionLvLs", () => {
@@ -76,6 +82,11 @@ describe("Character", () => {
             const character = new Character();
             const ascensionLvL = character.getAscensionLvLs(40, true);
             expect(ascensionLvL).toBe(2);
+        });
+        it ("lvl 50 with ascension should be 3", () => {
+            const character = new Character();
+            const ascensionLvL = character.getAscensionLvLs(50, true);
+            expect(ascensionLvL).toBe(3);
         });
     });
 });
