@@ -4,72 +4,99 @@ type Resourses = {
     [key: string]: number;
 };
 
-type Items = {
-    item: string;
+interface Item {
+    item: ItemData ;
     amount: number;
+}
+
+interface ItemData {
+    id: string;
+    name: string;
 }
 
 
 
-
-
 export class Character {
-    // getAscensionItems (id: string, ascensionStartLvL: number, ascensionEndLvL: number) {
+    // getAscensionItems (id: string, startLvL: number, startIsAscended: boolean,
+    //     endLvL: number, endIsAscended: boolean) {
     //     if (this.isValidAscensionLvL(ascensionStartLvL)
     //         && this.isValidAscensionLvL(ascensionEndLvL)
     //         && ascensionStartLvL <= ascensionEndLvL
     //     ) {
-    //         const materialsTotal: Material = {};
+    //         const resourses: Resourses = {};
     //         const character = characters[id];
     //         const ascension = character.ascension;
-    //         for (let i = ascensionStartLvL - 1; i < ascensionEndLvL; i++) {
+    //         if (ascensionStartLvL == 0 && ascensionEndLvL == 0) {
+    //             return resourses;
+    //         }
+    //         for (let i = ascensionStartLvL; i < ascensionEndLvL; i++) {
     //             const itemsPerAscension = ascension[i].items;
-    //             for (let itemPerAscension in itemsPerAscension) {
-    //                 const item: Item = itemsPerAscension[itemPerAscension];
-    //                 console.log(item.item.id)
-    //             }
-
-    //             ///console.log(JSON.parse(itemsPerAscension))
-    //             // for (const item in itemsPerAscension) {
-    //             //     console.log(JSON.parse(item).item)
-    //             // }
+    //             for (let items in itemsPerAscension) {
+    //                 const item: Item = itemsPerAscension[items];
+    //                 if (item.item.id != "none") {
+    //                     if (resourses[item.item.id]) {
+    //                         resourses[item.item.id] += item.amount;
+    //                     } else {
+    //                         resourses[item.item.id] = item.amount;
+    //                     };
+    //                 };
+    //             };
     //         };
-    //         return materialsTotal;
+    //         return resourses;
     //     } else {
     //         throw new Error("Invalid ascension level");
     //     }
     // };
 
-    getAscensionItems (id: string, ascensionStartLvL: number, ascensionEndLvL: number) {
-        if (this.isValidAscensionLvL(ascensionStartLvL)
-            && this.isValidAscensionLvL(ascensionEndLvL)
-            && ascensionStartLvL <= ascensionEndLvL
-        ) {
-            const resourses: Resourses = {};
-            const character = characters[id];
-            const ascension = character.ascension;
-            for (let i = ascensionStartLvL - 1; i < ascensionEndLvL; i++) {
-                const itemsPerAscension = ascension[i].items;
-                for (let itemPerAscension in itemsPerAscension) {
-                    const items: Items = itemsPerAscension[itemPerAscension];
-                    console.log(items.item)
-                }
-
-                ///console.log(JSON.parse(itemsPerAscension))
-                // for (const item in itemsPerAscension) {
-                //     console.log(JSON.parse(item).item)
-                // }
-            };
+    getAscensionItems (id: string, startLvL: number, startIsAscended: boolean,
+        endLvL: number, endIsAscended: boolean) {
+        var ascensionStartLvL = this.getAscensionLvLs(startLvL, startIsAscended);
+        console.log("ascensionStartLvL", ascensionStartLvL)
+        var ascensionEndLvL = this.getAscensionLvLs(endLvL, endIsAscended);
+        console.log("ascensionEndLvL", ascensionEndLvL);
+        const resourses: Resourses = {};
+        const character = characters[id];
+        const ascension = character.ascension;
+        if (ascensionStartLvL == 0 && ascensionEndLvL == 0) {
             return resourses;
-        } else {
-            throw new Error("Invalid ascension level");
-        }
+        };
+        // if (ascensionStartLvL == 0) {
+        //     ascensionStartLvL = 1;
+        // }
+        for (let i = ascensionStartLvL - 1; i < ascensionEndLvL; i++) {
+            if (i === -1) {
+                continue;
+            };
+            const itemsPerAscension = ascension[i].items;
+            for (let items in itemsPerAscension) {
+                const item: Item = itemsPerAscension[items];
+                if (item.item.id != "none") {
+                    if (resourses[item.item.id]) {
+                        resourses[item.item.id] += item.amount;
+                    } else {
+                        resourses[item.item.id] = item.amount;
+                    };
+                };
+            };
+        };
+        return resourses;
     };
 
-
+    getAscensionLvLs (lvl: number, isAscended: boolean) {
+            //const ascensionStartLvL = startIsAscended ? start + 1 : start;
+            var ascensionStartLvl: number;
+            if (lvl <= 20) {
+                ascensionStartLvl = 0;
+            } else if (lvl >= 20 && lvl <= 40) {
+                ascensionStartLvl = 1;
+            } else {
+                ascensionStartLvl = Math.floor(lvl / 10) - 2;
+            }
+            return isAscended ? ascensionStartLvl + 1 : ascensionStartLvl;
+    }
     
     isValidAscensionLvL(ascensionLvL: number) {
-        if (ascensionLvL < 1 || ascensionLvL > 6) {
+        if (ascensionLvL < 0 || ascensionLvL > 6) {
             return false;
         };
         return true;
