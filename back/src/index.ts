@@ -5,6 +5,7 @@ import { MongoClient } from 'mongodb';
 
 import { rosterRouter } from './roster';
 import { inventoriesRouter } from './inventories';
+import { charactersRouter } from './characters';
 
 dotenv.config();
 
@@ -22,6 +23,7 @@ app.get('/', (req: Request, res: Response) => {
 
 app.use('/roster', rosterRouter);
 app.use('/inventories', inventoriesRouter);
+app.use('/characters', charactersRouter);
 
 app.listen(port, () => {
   console.log(`⚡️[server]: Server is running at http://localhost:${port}`);

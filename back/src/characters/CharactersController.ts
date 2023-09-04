@@ -12,4 +12,7 @@ export class CharactersController {
         this.charactersService.addCharacter(req, res);
     };
 
+    getResources = async (req: Request, res: Response) => {
+        this.charactersService.getResources(req, res);
+    };
 };

@@ -15,6 +15,13 @@ interface ItemData {
 }
 
 export class Character {
+    getResources(id: string, startLvL: number, startIsAscended: boolean,
+        endLvL: number, endIsAscended: boolean) {
+        const resourses: Resourses = this.getAscensionItems(id, startLvL,
+            startIsAscended, endLvL, endIsAscended);
+        return resourses;
+    };
+
     getAscensionItems (id: string, startLvL: number, startIsAscended: boolean,
         endLvL: number, endIsAscended: boolean) {
         var ascensionStartLvL: number = this.getAscensionLvLs(startLvL);
@@ -33,10 +40,10 @@ export class Character {
             }
             const itemsPerAscension = ascension[i].items;
             const money = ascension[i].mora;
-            if (resourses["money"]) {
-                resourses["money"] += money;
+            if (resourses["mora"]) {
+                resourses["mora"] += money;
             } else {
-                resourses["money"] = money;
+                resourses["mora"] = money;
             };
             for (let items in itemsPerAscension) {
                 const item: Item = itemsPerAscension[items];
@@ -62,7 +69,7 @@ export class Character {
                 ascensionStartLvl = Math.floor(lvl / 10) - 2;
             }
             return ascensionStartLvl;
-    }
+    };
     
     isValidAscensionLvL(ascensionLvL: number) {
         if (ascensionLvL < 0 || ascensionLvL > 6) {

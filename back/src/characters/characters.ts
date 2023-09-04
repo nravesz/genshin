@@ -12,4 +12,8 @@ router.post('/', (req: Request, res: Response) => {
     charactersController.addCharacter(req, res);
 });
 
+router.get('/resources', (req: Request, res: Response) => {
+    charactersController.getResources(req, res);
+});
+
 export default router;
