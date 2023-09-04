@@ -49,8 +49,7 @@ export class CharactersService {
                 message: "Error getting resources",
                 error: error
             });
-        }
-
+        };
     };
     
 };
