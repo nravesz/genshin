@@ -3,6 +3,7 @@ import Button from 'react-bootstrap/Button';
 import { useSelector, useDispatch } from 'react-redux';
 import { RootState, AppDispatch } from '../redux/store';
 import { closeModal, openModal, setComponent } from '../redux/reducers/MenuModalReducer';
+import { Card } from './card';
 
 
 const Home = () => {
@@ -27,6 +28,12 @@ const Home = () => {
             >
                 Manage inventory
             </Button>
+
+            <Card
+                name="Albedo"
+                id="albedo"
+                inventory={{"prithiva_topaz_sliver": 10, "mora": 1000}}
+            />
         </div>
     );
 };
