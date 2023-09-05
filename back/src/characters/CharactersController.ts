@@ -8,8 +8,11 @@ export class CharactersController {
         this.charactersService = charactersService;
     };
 
-    getCharactersBasicInfo(req: Request, res: Response) {
-        this.charactersService.getRosterBasicInfo(req, res);
+    addCharacter = async (req: Request, res: Response) => {
+        this.charactersService.addCharacter(req, res);
     };
 
+    getResources = async (req: Request, res: Response) => {
+        this.charactersService.getResources(req, res);
+    };
 };

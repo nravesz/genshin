@@ -1,4 +1,3 @@
-import { useQuery, useQueryClient } from "react-query";
 import { CharacterCard } from ".";
 import type  { IRoster } from ".";
 import './styles/CharacterRoster.scss';

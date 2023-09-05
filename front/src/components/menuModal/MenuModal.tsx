@@ -22,7 +22,7 @@ const MenuModal = () => {
     const components: Components = {
         'characters': <RosterContainer />,
         'inventory': <InventoryContainer />
-    }
+    };
 
 	return (
 		<Modal

@@ -1,6 +1,6 @@
 import { useQuery, useQueryClient } from "react-query";
 import axios from "axios";
-import type  { ICharacter, IRoster } from ".";
+import type  { IRoster } from ".";
 import { Roster } from ".";
 import './styles/CharacterRoster.scss';
 
