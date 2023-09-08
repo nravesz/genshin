@@ -20,21 +20,7 @@ const characters = {
     }
 };
 
-// const fetchInventories = async () => {
-//     const inventories: Map<string, IInventory> = new Map();
-//     for (let character of Object.values(characters)) {
-//         const response: IInventory = await axios.get("http://localhost:3001/characters/resources", {
-//             params: {
-//                 id: character.id,
-//                 startLvL: character.startLvL,
-//                 startIsAscended: character.startIsAscended,
-//                 endLvL: character.endLvL,
-//                 endIsAscended: character.endIsAscended,
-//             }
-//         });
-//         console.log(response);
-//     };
-// };
+// 
 
 const fetchInventories = async () => {
     const inventories: Map<string, IInventory> = new Map();
@@ -42,22 +28,38 @@ const fetchInventories = async () => {
         const response = await axios.get("http://localhost:3001/characters/resources", {
             params: character
         });
-        console.log(response.data.data);
+        inventories.set(character.id, response.data.data);
     };
+    return inventories;
 };
 
 
 const CardContainer = () => {
     const queryClient = useQueryClient();
-    //const { data, isLoading, isError } = useQuery<IInventory[]>('inventories', fetchInventories);
-    fetchInventories();
+    const { data, isLoading, isError } = useQuery<Map<string, IInventory>>('inventories', fetchInventories);
+    //fetchInventories();
     return (
-        <Card
-            name="Albedo"
-            id="albedo"
-            inventory={{"prithiva_topaz_sliver": 10, "mora": 1000}}
-        />
-    )
+        <div>
+            {isLoading ? (
+                <span>Loading...</span>
+            ) : isError ? (
+                <span>Error: {isError}</span>
+            ) : (
+                <div>
+                    {
+                        Object.values(characters).map((character) => (
+                            <Card
+                                key={character.id}
+                                name={character.id}
+                                id={character.id}
+                                inventory={data?.get(character.id) as IInventory}
+                            />
+                        ))
+                    }
+                </div>
+            )}
+        </div>
+    );
 };
 
 export default CardContainer;
