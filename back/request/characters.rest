@@ -6,14 +6,7 @@ content-type: application/json
     "character": "albedo",
     "ascension": "3"
 }
-###
-GET http://localhost:3001/characters/resources
-content-type: application/json
 
-{
-    "id": "alhaitham",
-    "startLvL": 3,
-    "startIsAscended": false,
-    "endLvL": 20,
-    "endIsAscended": true
-}
+###
+GET http://localhost:3001/characters/resources?id=alhaitham&startLvL=3&startIsAscended=false&endLvL=20&endIsAscended=true
+content-type: application/json

@@ -1,6 +1,7 @@
 import React from "react";
 import Image from "react-bootstrap/esm/Image";
 import { IInventoryElement } from "../../redux/reducers/InventoryReducer";
+import { ITEM_IMAGE_URL } from "../../config";
 import './styles/Inventory.scss';
 
 import { useSelector, useDispatch } from 'react-redux';
@@ -37,7 +38,7 @@ const InventoryElement = ({id, quantity}: InventoryElementProps) => {
         >
             <Image
                 className="inventory-image"
-                src={`https://paimon.moe/images/items/${id}.png`}
+                src={`${ITEM_IMAGE_URL}/${id}.png`}
             />
             <input
                 //type="number"
