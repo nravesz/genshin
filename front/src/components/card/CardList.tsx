@@ -1,6 +1,7 @@
 import { Card } from ".";
 import { ICharacter } from "../roster";
 import { IInventory } from "../inventory";
+import "./styles/CardList.scss";
 
 type Prompts = {
     characters: ICharacter;
@@ -17,7 +18,9 @@ const CardList= ({characters, data, isLoading, isError}: Prompts) => {
             ) : isError ? (
                 <span>Error: {isError}</span>
             ) : (
-                <div>
+                <div
+                    className='card-list-div'
+                >
                     {
                         Object.values(characters).map((character) => (
                             <Card
