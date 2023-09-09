@@ -19,5 +19,6 @@ const Card = ({name, id, inventory}: CardProps) => {
         </div>
     );
 };
- export default Card;
+
+export default Card;
  

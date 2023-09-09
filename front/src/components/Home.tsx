@@ -3,7 +3,7 @@ import Button from 'react-bootstrap/Button';
 import { useSelector, useDispatch } from 'react-redux';
 import { RootState, AppDispatch } from '../redux/store';
 import { closeModal, openModal, setComponent } from '../redux/reducers/MenuModalReducer';
-import { CardContainer } from './card';
+import { CardListContainer } from './card';
 
 
 const Home = () => {
@@ -29,7 +29,7 @@ const Home = () => {
                 Manage inventory
             </Button>
 
-            <CardContainer />
+            <CardListContainer />
         </div>
     );
 };
