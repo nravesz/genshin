@@ -36,8 +36,8 @@ const fetchInventories = async () => {
 
 const CardContainer = () => {
     const queryClient = useQueryClient();
-    const { data, isLoading, isError } = useQuery<Map<string, IInventory>>('inventories', fetchInventories);
-    //fetchInventories();
+    const { data, isLoading, isError } =
+        useQuery<Map<string, IInventory>>('inventories', fetchInventories);
     return (
         <div>
             {isLoading ? (
