@@ -7,10 +7,15 @@ type CharacterCardPrompts = {
     name: string;
 }
 
+async function addCharacter(id: string) {
+    console.log(id)
+}
+
 const CharacterCard = ({id, name} : CharacterCardPrompts) => {
     return (
         <div
             className="character-card"
+            onClick={() => addCharacter(id)}
         >
             <Image
                 src={`${CHARACTER_IMAGE_URL}/${id}.png`}
