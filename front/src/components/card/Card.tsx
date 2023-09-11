@@ -1,5 +1,6 @@
 import { IInventory } from "../inventory"
 import { CharacterImage, Resources } from ".";
+import "./styles/Card.scss";
 
 type CardProps = {
     name: string;
@@ -9,7 +10,9 @@ type CardProps = {
 
 const Card = ({name, id, inventory}: CardProps) => {
     return (
-        <div>
+        <div
+            className="card-div"
+        >
             <CharacterImage
                 id={id}
             />
@@ -19,5 +22,6 @@ const Card = ({name, id, inventory}: CardProps) => {
         </div>
     );
 };
- export default Card;
+
+export default Card;
  

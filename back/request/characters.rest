@@ -1,10 +1,25 @@
 
-POST http://localhost:3001/roster
+###
+GET http://localhost:3001/characters
+
+###
+POST http://localhost:3001/characters
 content-type: application/json
 
 {
-    "character": "albedo",
-    "ascension": "3"
+    "id": "alhaitham",
+    "startLvL": 3,
+    "startIsAscended": false,
+    "endLvL": 20,
+    "endIsAscended": true
+}
+
+###
+DELETE http://localhost:3001/characters
+content-type: application/json
+
+{
+    "id": "alhaitham"
 }
 
 ###

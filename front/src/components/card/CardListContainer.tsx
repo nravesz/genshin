@@ -1,9 +1,20 @@
 import { Card } from '.';
 import { IInventory } from '../inventory';
 import axios from "axios";
-import { useQuery, useQueryClient, useMutation } from "react-query";
+import { useQuery, useQueryClient } from "react-query";
 
 const characters = {
+    "alhaitham": {
+        "id": "alhaitham",
+        "name": "Al-Haitham",
+    },
+    "albedo": {
+        "id": "albedo",
+        "name": "Albedo",
+    }
+};
+
+const charactersLvL = {
     "alhaitham": {
         "id": "alhaitham",
         "startLvL": 3,
@@ -20,11 +31,9 @@ const characters = {
     }
 };
 
-// 
-
 const fetchInventories = async () => {
     const inventories: Map<string, IInventory> = new Map();
-    for (let character of Object.values(characters)) {
+    for (let character of Object.values(charactersLvL)) {
         const response = await axios.get("http://localhost:3001/characters/resources", {
             params: character
         });
@@ -33,8 +42,7 @@ const fetchInventories = async () => {
     return inventories;
 };
 
-
-const CardContainer = () => {
+const CardListContainer = () => {
     const queryClient = useQueryClient();
     const { data, isLoading, isError } =
         useQuery<Map<string, IInventory>>('inventories', fetchInventories);
@@ -62,4 +70,4 @@ const CardContainer = () => {
     );
 };
 
-export default CardContainer;
+export default CardListContainer;
