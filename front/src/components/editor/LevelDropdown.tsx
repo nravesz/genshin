@@ -4,7 +4,7 @@ import { LevelDropdownItem, ILvL } from ".";
 
 type Prompts = {
     LvL: ILvL,
-    setLvL: React.Dispatch<React.SetStateAction<ILvL>>
+    setLvL: (lvl: ILvL) => void
 };
 
 const LevelDropdown = ({LvL, setLvL}: Prompts) => {

@@ -1,11 +1,24 @@
 import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
-import { Editor } from '.';
+import { Editor, ILvL } from '.';
+
+import { useSelector, useDispatch } from 'react-redux';
+import { RootState, AppDispatch } from '../../redux/store';
+import { closeModal, clearStates} from '../../redux/reducers/EditorModalReducer';
+
+function addCharacter(startLvL: ILvL, endLvL: ILvL) {
+    console.log(startLvL, endLvL);
+};
 
 const EditorModal = () => {
+    const modalState = useSelector((state: RootState) => state.editorModal.isOpen);
+    const startLvL = useSelector((state: RootState) => state.editorModal.startLvL);
+    const endLvL = useSelector((state: RootState) => state.editorModal.endLvL);
+	const dispatch = useDispatch<AppDispatch>();
+
     return (
         <Modal
-            show={true}
+            show={modalState}
             size="sm"
         >
             <Modal.Header
@@ -21,11 +34,20 @@ const EditorModal = () => {
             <Modal.Footer>
                 <Button
                     variant="secondary"
-                    onClick={() => console.log("close")}
-                >Close</Button>
+                    onClick={() => {
+                        dispatch(clearStates())
+                        dispatch(closeModal());
+                    }}
+                >
+                    Close
+                </Button>
                 <Button
                     variant="primary"
-                    onClick={() => console.log("save")}
+                    onClick={() => {
+                        addCharacter(startLvL, endLvL);
+                        dispatch(clearStates());
+                        dispatch(closeModal());
+                    }}
                 >
                     Save changes
                 </Button>

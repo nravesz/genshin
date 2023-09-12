@@ -1,5 +1,7 @@
-import React from "react";
-import { LevelDropdown } from ".";
+import { ILvL, LevelDropdown } from ".";
+import { RootState, AppDispatch } from '../../redux/store';
+import { useSelector, useDispatch } from 'react-redux';
+import { setStartLvL, setEndLvL } from '../../redux/reducers/EditorModalReducer';
 
 type LvL = {
     LvL: number;
@@ -7,18 +9,27 @@ type LvL = {
 };
 
 const Editor = () => {
-    const [startLvL, setStartLvL] = React.useState<LvL>({ LvL: 1, isAscended: false });
-    const [endLvL, setEndLvL] = React.useState<LvL>({ LvL: 1, isAscended: false });
+    const startLvL = useSelector((state: RootState) => state.editorModal.startLvL);
+    const endLvL = useSelector((state: RootState) => state.editorModal.endLvL);
+    const dispatch = useDispatch<AppDispatch>();
+
+    const handleStartLvLChange = (newStartLvL: ILvL) => {
+        dispatch(setStartLvL(newStartLvL));
+      };
+    
+      const handleEndLvLChange = (newEndLvL: ILvL) => {
+        dispatch(setEndLvL(newEndLvL));
+      };
 
     return (
         <div>
             <LevelDropdown
                 LvL={startLvL}
-                setLvL={setStartLvL}
+                setLvL={handleStartLvLChange}
             />
             <LevelDropdown
                 LvL={endLvL}
-                setLvL={setEndLvL}
+                setLvL={handleEndLvLChange}
             />
         </div>
 

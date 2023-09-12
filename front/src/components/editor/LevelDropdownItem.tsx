@@ -3,7 +3,7 @@ import { ILvL } from ".";
 type Prompts = {
     LvL: number;
     isAscended: boolean;
-    setLvL: React.Dispatch<React.SetStateAction<ILvL>>
+    setLvL: (lvl: ILvL) => void
 }
 
 const LevelDropdownItem = ({LvL, isAscended, setLvL}: Prompts) => {
