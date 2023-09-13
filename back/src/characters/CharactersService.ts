@@ -144,6 +144,7 @@ export class CharactersService {
         const startIsAscended: boolean | undefined = req.query.startIsAscended === 'true';
         const endLvL: number | undefined = parseInt(req.query.endLvL as string);
         const endIsAscended: boolean | undefined = req.query.endIsAscended === 'true';
+        console.log(id, startLvL, startIsAscended, endLvL, endIsAscended)
         return { id, startLvL, startIsAscended, endLvL, endIsAscended }
     };
 
