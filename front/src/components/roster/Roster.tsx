@@ -1,4 +1,4 @@
-import { CharacterCard } from ".";
+import { CharacterCardContainer } from ".";
 import type  { IRoster } from ".";
 import './styles/CharacterRoster.scss';
 
@@ -22,7 +22,7 @@ const Roster= ({data, isLoading, isError}: RosterPrompts) => {
             className="container-characters"
         >
             {Object.keys(data).map((character) => 
-                <CharacterCard
+                <CharacterCardContainer
                     key={data[character].id}
                     id={data[character].id}
                     name={data[character].name}

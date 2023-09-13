@@ -3,11 +3,6 @@ import { RootState, AppDispatch } from '../../redux/store';
 import { useSelector, useDispatch } from 'react-redux';
 import { setStartLvL, setEndLvL } from '../../redux/reducers/EditorModalReducer';
 
-type LvL = {
-    LvL: number;
-    isAscended: boolean;
-};
-
 const Editor = () => {
     const startLvL = useSelector((state: RootState) => state.editorModal.startLvL);
     const endLvL = useSelector((state: RootState) => state.editorModal.endLvL);
