@@ -1,10 +1,9 @@
 import Button from 'react-bootstrap/Button';
 
-import { useSelector, useDispatch } from 'react-redux';
-import { RootState, AppDispatch } from '../redux/store';
-import { closeModal, openModal, setComponent } from '../redux/reducers/MenuModalReducer';
+import { useDispatch } from 'react-redux';
+import { AppDispatch } from '../redux/store';
+import { openModal, setComponent } from '../redux/reducers/MenuModalReducer';
 import { CardListContainer } from './card';
-import { EditorModal } from './editor';
 
 
 const Home = () => {
@@ -31,8 +30,6 @@ const Home = () => {
             </Button>
 
             <CardListContainer />
-
-            <EditorModal />
         </div>
     );
 };

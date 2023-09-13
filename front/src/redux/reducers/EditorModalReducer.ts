@@ -3,6 +3,7 @@ import { ILvL } from "../../components/editor";
 
 interface EditorModalState {
     isOpen: boolean;
+    id: string;
     startLvL: ILvL;
     endLvL: ILvL;
 };
@@ -10,13 +11,14 @@ interface EditorModalState {
 const initialLvL: ILvL = { LvL: 1, isAscended: false };
 
 const initialState: EditorModalState = {
-    isOpen: true,
+    isOpen: false,
+    id: "",
     startLvL: initialLvL,
     endLvL: initialLvL
 };
 
 export const modalSlice = createSlice({
-    name: "modalState",
+    name: "EditorModalState",
     initialState,
     reducers: {
         closeModal: (state) => {
@@ -25,6 +27,9 @@ export const modalSlice = createSlice({
         openModal: (state) => {
             state.isOpen = true;
         },
+        setID(state, action: PayloadAction<string>) {
+            state.id = action.payload;
+        },
         setStartLvL(state, action: PayloadAction<ILvL>) {
             state.startLvL = action.payload;
         },
@@ -32,11 +37,20 @@ export const modalSlice = createSlice({
             state.endLvL = action.payload;
         },
         clearStates(state) {
+            state.id = "";
             state.startLvL = initialLvL;
             state.endLvL = initialLvL;
         }
     }
 });
 
-export const { closeModal, openModal, setStartLvL, setEndLvL, clearStates } = modalSlice.actions;
+export const {
+    closeModal,
+    openModal,
+    setID,
+    setStartLvL,
+    setEndLvL,
+    clearStates
+} = modalSlice.actions;
+
 export default modalSlice.reducer;

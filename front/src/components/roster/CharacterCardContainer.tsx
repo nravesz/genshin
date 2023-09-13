@@ -1,10 +1,9 @@
-import axios from "axios";
 import { CharacterCard } from ".";
 
 import { RootState, AppDispatch } from '../../redux/store';
 import { useSelector, useDispatch } from 'react-redux';
-import { closeModal as closeEditorModal } from '../../redux/reducers/EditorModalReducer';
-import { closeModal as closeMenuModal } from "../../redux/reducers/MenuModalReducer";
+import { openModal, setID } from '../../redux/reducers/EditorModalReducer';
+
 
 type Props = {
     id: string;
@@ -17,15 +16,8 @@ const CharacterCardContainer = ({id, name}: Props) => {
     const dispatch = useDispatch<AppDispatch>();
 
     async function addCharacter() {
-        const response = await axios.post(`http://localhost:3001/characters`, {
-            "id": id,
-            "startLvL": startLvL.LvL,
-            "startIsAscended": startLvL.LvL,
-            "endLvL": endLvL.LvL,
-            "endIsAscended": endLvL.isAscended
-        });
-        dispatch(closeEditorModal());
-        dispatch(closeMenuModal());
+        dispatch(setID(id));
+        dispatch(openModal());
     };
 
     return (

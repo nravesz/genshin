@@ -82,7 +82,6 @@ export class CharactersService {
     async deleteCharacter(req: Request, res: Response) {
         const email = "example@gmail.com"; // TODO: get email from token
         try {
-            console.log(req.body)
             const id: string | undefined = req.body.id as string | undefined;
             if (id !== undefined) {
                 await this.charactersRepository.deleteCharacter(email, id);
@@ -144,7 +143,6 @@ export class CharactersService {
         const startIsAscended: boolean | undefined = req.query.startIsAscended === 'true';
         const endLvL: number | undefined = parseInt(req.query.endLvL as string);
         const endIsAscended: boolean | undefined = req.query.endIsAscended === 'true';
-        console.log(id, startLvL, startIsAscended, endLvL, endIsAscended)
         return { id, startLvL, startIsAscended, endLvL, endIsAscended }
     };
 
