@@ -4,7 +4,7 @@ import { IInventory } from '../inventory';
 import axios from "axios";
 import { useQuery, useQueryClient } from "react-query";
 
-const fetchCharacters = async () => {
+export const fetchCharacters = async () => {
     const response = await axios.get("http://localhost:3001/characters");
     return response.data.data;
 };
@@ -27,12 +27,12 @@ const fetchInventories = async (characterData: Array<ICharacterLvL>) => {
 };
 
 const CardListContainer = () => {
-    const { data: characterData, isLoading: characterIsLoading, isError: characterIsError } =
+    const { data: characterData, isLoading: characterIsLoading, isError: characterIsError, refetch: characterRefetch } =
         useQuery<Array<ICharacterLvL>>('userCharacters', fetchCharacters);
 
     const { data: inventoryData, isLoading: inventoryIsLoading, isError: inventoryIsError } =
     useQuery<Map<string, IInventory>>(
-        'inventories',
+        ['inventories', characterData],
         () => fetchInventories(characterData as Array<ICharacterLvL>),
         {
             enabled: !!characterData

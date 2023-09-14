@@ -2,6 +2,9 @@ import axios from 'axios';
 import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
 import { Editor, ILvL } from '.';
+import  { ICharacterLvL } from '../card';
+import { useQuery, useQueryClient, useMutation } from 'react-query';
+import { fetchCharacters } from '../card/CardListContainer';
 
 import { useSelector, useDispatch } from 'react-redux';
 import { RootState, AppDispatch } from '../../redux/store';
@@ -11,20 +14,35 @@ import { closeModal as menusCloseModal } from '../../redux/reducers/MenuModalRed
 
 
 const EditorModal = () => {
+    const queryClient = useQueryClient();
     const modalState = useSelector((state: RootState) => state.editorModal.isOpen);
     const id = useSelector((state: RootState) => state.editorModal.id);
     const startLvL = useSelector((state: RootState) => state.editorModal.startLvL);
     const endLvL = useSelector((state: RootState) => state.editorModal.endLvL);
 	const dispatch = useDispatch<AppDispatch>();
+    const { data: characterData, isLoading: characterIsLoading, isError: characterIsError, refetch: characterRefetch } =
+            useQuery<Array<ICharacterLvL>>('userCharacters', fetchCharacters);
     
+    const saveButtonMutation = useMutation((characterData: {
+        id: string,
+        startLvL: number,
+        startIsAscended: boolean,
+        endLvL: number,
+        endIsAscended: boolean
+    }) => {
+        queryClient.invalidateQueries(['userCharacters', "inventories"]);
+        return axios.post(`http://localhost:3001/characters`, characterData);
+    });
+
     async function handleSaveButton(id: string, startLvL: ILvL, endLvL: ILvL) {
-        const response = await axios.post(`http://localhost:3001/characters`, {
+        await saveButtonMutation.mutateAsync({
             "id": id,
             "startLvL": startLvL.LvL,
             "startIsAscended": startLvL.isAscended,
             "endLvL": endLvL.LvL,
             "endIsAscended": endLvL.isAscended
         });
+        characterRefetch();
         dispatch(editorCloseModal());
         dispatch(editorClearStates())
         dispatch(menusCloseModal());
