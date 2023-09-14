@@ -40,8 +40,6 @@ const CardListContainer = () => {
     );
 
     const characters = Array.isArray(characterData) ? characterData : [];
-    
-    console.log(characterIsError)
 
     return (
         <div>
