@@ -28,7 +28,7 @@ const fetchInventories = async (characterData: Array<ICharacterLvL>) => {
 
 const CardListContainer = () => {
     const { data: characterData, isLoading: characterIsLoading, isError: characterIsError } =
-        useQuery<Array<ICharacterLvL>>('characters', fetchCharacters);
+        useQuery<Array<ICharacterLvL>>('userCharacters', fetchCharacters);
 
     const { data: inventoryData, isLoading: inventoryIsLoading, isError: inventoryIsError } =
     useQuery<Map<string, IInventory>>(
