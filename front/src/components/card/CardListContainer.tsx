@@ -2,7 +2,7 @@ import { Card } from '.';
 import { ICharacterLvL } from '.';
 import { IInventory } from '../inventory';
 import axios from "axios";
-import { useQuery, useQueryClient } from "react-query";
+import { useQuery } from "react-query";
 
 export const fetchCharacters = async () => {
     const response = await axios.get("http://localhost:3001/characters");

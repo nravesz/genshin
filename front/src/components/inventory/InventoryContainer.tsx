@@ -1,6 +1,6 @@
 import React from "react";
 import { useEffect } from "react";
-import { useQuery, useQueryClient, useMutation } from "react-query";
+import { useQueryClient } from "react-query";
 import axios from "axios";
 import { Inventory } from ".";
 

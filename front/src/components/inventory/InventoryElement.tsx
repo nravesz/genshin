@@ -4,8 +4,8 @@ import { IInventoryElement } from "../../redux/reducers/InventoryReducer";
 import { ITEM_IMAGE_URL } from "../../config";
 import './styles/Inventory.scss';
 
-import { useSelector, useDispatch } from 'react-redux';
-import { RootState, AppDispatch } from '../../redux/store';
+import { useDispatch } from 'react-redux';
+import { AppDispatch } from '../../redux/store';
 import { addElement } from "../../redux/reducers/InventoryReducer";
 
 interface InventoryElementProps {
