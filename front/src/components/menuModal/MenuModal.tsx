@@ -2,9 +2,10 @@ import React from 'react';
 import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
 import { Scrollbars } from 'react-custom-scrollbars-2';
+import { useQuery } from 'react-query';
 
 import { RosterContainer } from '../roster';
-import { InventoryContainer } from '../inventory';
+import { InventoryContainer, IInventory, fetchInventory } from '../inventory';
 
 import { useSelector, useDispatch } from 'react-redux';
 import { RootState, AppDispatch } from '../../redux/store';
@@ -52,8 +53,10 @@ const MenuModal = () => {
 				>Close</Button>
 				<Button
 					variant="primary"
-					onClick={() => {
-						dispatch(updateInventory(true))
+					onClick={async () => {
+						if (component === 'inventory') {
+							await dispatch(updateInventory(true))
+						}
 						dispatch(closeModal());
 					}}
 				>
