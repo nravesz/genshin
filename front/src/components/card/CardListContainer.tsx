@@ -9,7 +9,7 @@ export const fetchCharacters = async () => {
     return response.data.data;
 };
 
-const fetchInventories = async (characterData: Array<ICharacterLvL>) => {
+export const fetchInventories = async (characterData: Array<ICharacterLvL>) => {
     const inventories: Map<string, IInventory> = new Map();
     for (let i = 0; i < characterData.length; i++) {
         const response = await axios.get("http://localhost:3001/characters/resources", {
