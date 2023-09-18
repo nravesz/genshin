@@ -8,9 +8,10 @@ export class RosterService {
         this.rosterRepository = charactersRepository;
     };
 
-    getRosterBasicInfo(req: Request, res: Response) {
+    async getRosterBasicInfo(req: Request, res: Response) {
         try {
-            const data = this.rosterRepository.getRosterBasicInfo();
+            const email = "example@gmail.com"; // TODO: get email from token
+            const data = await this.rosterRepository.getRosterBasicInfo(email);
             res.status(200).json({
                 message: "Roster fetched",
                 data: data

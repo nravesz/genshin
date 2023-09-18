@@ -10,7 +10,6 @@ const fetchCharacters = async () => {
 };
 
 const RosterContainer = () => {
-    const queryClient = useQueryClient();
     const { data, isLoading, isError } = useQuery<IRoster>('characters', fetchCharacters);
     
     if (isLoading) {

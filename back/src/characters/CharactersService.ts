@@ -30,6 +30,7 @@ export class CharactersService {
         try {
             const email = "example@gmail.com"; // TODO: get email from token
             const { id, startLvL, startIsAscended, endLvL , endIsAscended} = this.addCharacterParseeBody(req);
+
             if (id !== undefined && startLvL !== undefined
                 && startIsAscended !== undefined && endLvL !== undefined
                 && endIsAscended !== undefined)
@@ -81,7 +82,6 @@ export class CharactersService {
     async deleteCharacter(req: Request, res: Response) {
         const email = "example@gmail.com"; // TODO: get email from token
         try {
-            console.log(req.body)
             const id: string | undefined = req.body.id as string | undefined;
             if (id !== undefined) {
                 await this.charactersRepository.deleteCharacter(email, id);
@@ -149,9 +149,9 @@ export class CharactersService {
     addCharacterParseeBody(req: Request) {
         const id: string | undefined = req.body.id;
         const startLvL: number | undefined = parseInt(req.body.startLvL);
-        const startIsAscended: boolean | undefined = req.body.startIsAscended === 'true';
+        const startIsAscended: boolean | undefined = `${req.body.startIsAscended}` === 'true';
         const endLvL: number | undefined = parseInt(req.body.endLvL);
-        const endIsAscended: boolean | undefined = req.body.endIsAscended === 'true';
+        const endIsAscended: boolean | undefined = `${req.body.endIsAscended}` === 'true';
         return { id, startLvL, startIsAscended, endLvL, endIsAscended }
     }
     

@@ -15,7 +15,7 @@ const initialState: InventoryState = {
 };
 
 export const modalSlice = createSlice({
-    name: "modalState",
+    name: "InventoryModalState",
     initialState,
     reducers: {
         addElement: (state, action: PayloadAction<IInventoryElement>) => {

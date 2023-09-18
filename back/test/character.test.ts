@@ -54,7 +54,7 @@ describe("Character", () => {
         it ("sLvL 20 t, eLvL 40 t money should be", () => {
             const character = new Character();
             const ascensionItems = character.getAscensionItems("alhaitham", 40, false, 70, true);
-            expect(ascensionItems.money).toStrictEqual(280000);
+            expect(ascensionItems.mora).toStrictEqual(280000);
         });
 
     });

@@ -6,6 +6,7 @@ import {
 } from 'react-query'
 import { Provider } from 'react-redux';
 import store from './redux/store';
+import { EditorModal } from './components/editor';
 
 const queryClient = new QueryClient()
 
@@ -16,6 +17,7 @@ function App() {
         <QueryClientProvider client={queryClient}>
           <Home />
           <MenuModal />
+          <EditorModal />
         </QueryClientProvider>
       </Provider>
     </div>

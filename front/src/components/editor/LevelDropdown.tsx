@@ -27,14 +27,14 @@ const LevelDropdown = ({LvL, setLvL}: Prompts) => {
                         </Row>
                     ) : (index === 7) ? (
                         <Row key={index}>
-                        <Dropdown.Item>
-                            <LevelDropdownItem
-                                LvL={(index + 1) * 10}
-                                isAscended={false}
-                                setLvL={setLvL}
-                            />
-                        </Dropdown.Item>
-                    </Row>
+                            <Dropdown.Item>
+                                <LevelDropdownItem
+                                    LvL={(index + 1) * 10}
+                                    isAscended={false}
+                                    setLvL={setLvL}
+                                />
+                            </Dropdown.Item>
+                        </Row>
                     ) : (
                         <Row key={index}>
                             <Col>
