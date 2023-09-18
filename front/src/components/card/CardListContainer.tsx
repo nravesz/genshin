@@ -3,6 +3,10 @@ import { ICharacterLvL } from '.';
 import { IInventory } from '../inventory';
 import axios from "axios";
 import { useQuery } from "react-query";
+import { useSelector, useDispatch } from 'react-redux';
+import { RootState, AppDispatch } from '../../redux/store';
+import { alreadyUpdated, needsUpdate } from '../../redux/reducers/CardListReducer';
+import { useEffect } from 'react';
 
 export const fetchCharacters = async () => {
     const response = await axios.get("http://localhost:3001/characters");
@@ -27,10 +31,15 @@ export const fetchInventories = async (characterData: Array<ICharacterLvL>) => {
 };
 
 const CardListContainer = () => {
-    const { data: characterData, isLoading: characterIsLoading, isError: characterIsError, refetch: characterRefetch } =
+    const updated = useSelector((state: RootState) => state.cardListUpdater.updated);
+    const dispatch = useDispatch<AppDispatch>();
+
+    const { data: characterData, isLoading: characterIsLoading,
+        isError: characterIsError, refetch: characterRefetch } =
         useQuery<Array<ICharacterLvL>>('userCharacters', fetchCharacters);
 
-    const { data: inventoryData, isLoading: inventoryIsLoading, isError: inventoryIsError } =
+    const { data: inventoryData, isLoading: inventoryIsLoading,
+        isError: inventoryIsError, refetch: inventoriesRefetch } =
     useQuery<Map<string, IInventory>>(
         ['inventories', characterData],
         () => fetchInventories(characterData as Array<ICharacterLvL>),
@@ -38,6 +47,16 @@ const CardListContainer = () => {
             enabled: !!characterData
         }
     );
+
+    useEffect(() => {
+        (async () => {
+            if (!updated) {
+                await characterRefetch();
+                await inventoriesRefetch();
+                dispatch(alreadyUpdated());
+            }
+        })();
+    }, [updated]);
 
     const characters = Array.isArray(characterData) ? characterData : [];
 
