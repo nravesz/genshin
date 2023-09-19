@@ -2,14 +2,14 @@ import { configureStore } from '@reduxjs/toolkit'
 import MenuModalReducer from './reducers/MenuModalReducer'
 import InventoryReducer from './reducers/InventoryReducer';
 import EditorModalReducer from './reducers/EditorModalReducer';
-import CardListReducer from './reducers/CardListReducer';
+import CardListUpdaterReducer from './reducers/CardListReducer';
 
 export const store = configureStore({
   reducer: {
     menuModal: MenuModalReducer,
     inventory: InventoryReducer,
     editorModal: EditorModalReducer,
-    cardListUpdater: CardListReducer
+    cardListUpdater: CardListUpdaterReducer
   },
 })
 

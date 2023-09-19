@@ -3,14 +3,14 @@ import { ICharacter } from "../roster";
 import { IInventory } from "../inventory";
 import "./styles/CardList.scss";
 
-type Prompts = {
+type Props = {
     characters: ICharacter;
     data: Map<string, IInventory>;
     isLoading: boolean;
     isError: boolean;
 };
 
-const CardList= ({characters, data, isLoading, isError}: Prompts) => {
+const CardList= ({characters, data, isLoading, isError}: Props) => {
     return (
         <div>
             {isLoading ? (
