@@ -27,7 +27,7 @@ const CardList= ({characters, data, isLoading, isError}: Prompts) => {
                                 key={character.id}
                                 name={character.id}
                                 id={character.id}
-                                inventory={data?.get(character.id) as IInventory}
+                                resources={data?.get(character.id) as IInventory}
                             />
                         ))
                     }

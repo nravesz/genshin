@@ -5,7 +5,7 @@ import axios from "axios";
 import { useQuery } from "react-query";
 import { useSelector, useDispatch } from 'react-redux';
 import { RootState, AppDispatch } from '../../redux/store';
-import { alreadyUpdated, needsUpdate } from '../../redux/reducers/CardListReducer';
+import { alreadyUpdated } from '../../redux/reducers/CardListReducer';
 import { useEffect } from 'react';
 
 export const fetchCharacters = async () => {
@@ -71,7 +71,7 @@ const CardListContainer = () => {
                             key={character.id}
                             id={character.id}
                             name={character.id}
-                            inventory={inventoryData.get(character.id) as IInventory}
+                            resources={inventoryData.get(character.id) as IInventory}
                         />
                     ))}
                 </div>

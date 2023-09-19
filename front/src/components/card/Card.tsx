@@ -9,14 +9,14 @@ import { needsUpdate } from "../../redux/reducers/CardListReducer";
 
 import "./styles/Card.scss";
 
-type CardProps = {
+type Props = {
     name: string;
     id: string;
-    inventory: IInventory;
+    resources: IInventory;
 };
 
 
-const Card = ({name, id, inventory}: CardProps) => {const dispatch = useDispatch<AppDispatch>();
+const Card = ({name, id, resources}: Props) => {const dispatch = useDispatch<AppDispatch>();
     
     async function deleteCharacter(id: string) {
         await axios.delete("http://localhost:3001/characters", {
@@ -40,7 +40,7 @@ const Card = ({name, id, inventory}: CardProps) => {const dispatch = useDispatch
                 id={id}
             />
             <Resources
-                resources={inventory}
+                resources={resources}
             />
         </div>
     );
