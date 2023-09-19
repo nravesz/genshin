@@ -1,4 +1,5 @@
 import React from "react";
+import Button from "react-bootstrap/esm/Button";
 import { useEffect } from "react";
 import { useQuery, useQueryClient } from "react-query";
 import axios from "axios";
@@ -21,7 +22,7 @@ export async function fetchInventory () {
 
 const InventoryContainer = () => {
     const { data: inventoryData, isLoading: inventoryIsLoading,
-        isError: inventoryIsError, refetch: inventoryRefetch } =
+        isError: inventoryIsError, refetch: inventoryRefetch, isFetching } =
         useQuery<IInventory>("userInventory", fetchInventory);
     const { data: characterData, isLoading: characterIsLoading,
         isError: characterIsError, refetch: characterRefetch } =
@@ -58,14 +59,18 @@ const InventoryContainer = () => {
 
     return (
         <div>
-            {inventoryData ? (
+            {inventoryIsLoading ? (
+                <span>Loading...</span>
+            ) : isFetching ? (
+                <span>Updating...</span>
+            ) : inventoryData ? (
                 <Inventory
-                    data={inventoryData}
-                    isLoading={false}
-                    isError={false}
-                />
+                        data={inventoryData}
+                        isLoading={false}
+                        isError={false}
+                    />
             ) : (
-                <div>loading...</div>
+                <span>Error</span>
             )}
         </div>
     );
