@@ -1,6 +1,6 @@
 import axios from "axios";
 import { useEffect } from 'react';
-import { Card } from '.';
+import { Card, CardList } from '.';
 import { ICharacterLvL } from '.';
 import { IInventory } from '../inventory';
 
@@ -68,14 +68,10 @@ const CardListContainer = () => {
                 <span>Loading...</span>
             ) : characterData && inventoryData ? (
                 <div>
-                    {characters.map((character) => (
-                        <Card
-                            key={character.id}
-                            id={character.id}
-                            name={character.id}
-                            resources={inventoryData.get(character.id) as IInventory}
-                        />
-                    ))}
+                    <CardList
+                        characters={characters}
+                        resources={inventoryData}
+                    />
                 </div>
             ) : (
                 <span>Error</span>
