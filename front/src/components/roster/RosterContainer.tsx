@@ -10,9 +10,10 @@ const fetchCharacters = async () => {
 };
 
 const RosterContainer = () => {
-    const { data, isLoading, isError } = useQuery<IRoster>('characters', fetchCharacters);
+    const { data, isLoading, isError, isFetching } =
+        useQuery<IRoster>('characters', fetchCharacters);
     
-    if (isLoading) {
+    if (isLoading || isFetching) {
         return <div>Loading...</div>;
       }
 
@@ -21,14 +22,12 @@ const RosterContainer = () => {
             <div>
                 <Roster
                     data={data}
-                    isLoading={isLoading}
-                    isError={isError}
                 />
             </div>
         )
     }
 
-    return <div> Error fetching characters </div>;
+    return <div> Error</div>;
     
 };
 

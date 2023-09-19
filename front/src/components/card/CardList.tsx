@@ -6,34 +6,25 @@ import "./styles/CardList.scss";
 type Props = {
     characters: ICharacter;
     data: Map<string, IInventory>;
-    isLoading: boolean;
-    isError: boolean;
 };
 
-const CardList= ({characters, data, isLoading, isError}: Props) => {
+const CardList= ({characters, data}: Props) => {
     return (
-        <div>
-            {isLoading ? (
-                <span>Loading...</span>
-            ) : isError ? (
-                <span>Error: {isError}</span>
-            ) : (
-                <div
-                    className='card-list-div'
-                >
-                    {
-                        Object.values(characters).map((character) => (
-                            <Card
-                                key={character.id}
-                                name={character.id}
-                                id={character.id}
-                                resources={data?.get(character.id) as IInventory}
-                            />
-                        ))
-                    }
-                </div>
-            )}
+        <div
+            className='card-list-div'
+        >
+            {
+                Object.values(characters).map((character) => (
+                    <Card
+                        key={character.id}
+                        name={character.id}
+                        id={character.id}
+                        resources={data?.get(character.id) as IInventory}
+                    />
+                ))
+            }
         </div>
+
     );
 };
 

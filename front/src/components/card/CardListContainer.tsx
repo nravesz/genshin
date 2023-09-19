@@ -1,12 +1,14 @@
+import axios from "axios";
+import { useEffect } from 'react';
 import { Card } from '.';
 import { ICharacterLvL } from '.';
 import { IInventory } from '../inventory';
-import axios from "axios";
+
 import { useQuery } from "react-query";
+
 import { useSelector, useDispatch } from 'react-redux';
 import { RootState, AppDispatch } from '../../redux/store';
 import { alreadyUpdated } from '../../redux/reducers/CardListReducer';
-import { useEffect } from 'react';
 
 export const fetchCharacters = async () => {
     const response = await axios.get("http://localhost:3001/characters");
