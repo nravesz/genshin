@@ -16,7 +16,7 @@ type Props = {
 };
 
 
-const Card = ({name, id, resources}: Props) => {const dispatch = useDispatch<AppDispatch>();
+const Card = ({ name, id, resources }: Props) => {const dispatch = useDispatch<AppDispatch>();
     
     async function deleteCharacter(id: string) {
         await axios.delete("http://localhost:3001/characters", {

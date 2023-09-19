@@ -2,11 +2,11 @@ import { CharacterCardContainer } from ".";
 import type  { IRoster } from ".";
 import './styles/CharacterRoster.scss';
 
-type RosterPrompts = {
+type Props = {
     data: IRoster;
 };
 
-const Roster= ({data}: RosterPrompts) => {
+const Roster= ({ data }: Props) => {
     
     return(
         <div

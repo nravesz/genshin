@@ -8,7 +8,7 @@ type Props = {
     resources: Map<string, IInventory>;
 };
 
-const CardList= ({characters, resources}: Props) => {
+const CardList= ({ characters, resources }: Props) => {
     return (
         <div
             className='card-list-div'

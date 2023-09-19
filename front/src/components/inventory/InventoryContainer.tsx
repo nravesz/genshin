@@ -13,7 +13,7 @@ import { updateInventory } from '../../redux/reducers/MenuModalReducer';
 
 export interface IInventory {
     [key: string]: number;
-}
+};
 
 export async function fetchInventory () {
     const response = await axios.get("http://localhost:3001/inventories");

@@ -2,12 +2,12 @@ import { Dropdown } from "react-bootstrap";
 import { Row, Col } from "react-bootstrap";
 import { LevelDropdownItem, ILvL } from ".";
 
-type Prompts = {
+type Props = {
     LvL: ILvL,
     setLvL: (lvl: ILvL) => void
 };
 
-const LevelDropdown = ({LvL, setLvL}: Prompts) => {
+const LevelDropdown = ({ LvL, setLvL }: Props) => {
     return (
         <Dropdown>
             <Dropdown.Toggle variant="success" id="dropdown-basic">

@@ -2,13 +2,13 @@ import { IInventory } from "./InventoryContainer";
 import { InventoryElement } from ".";
 import './styles/Inventory.scss';
 
-type InventoryPrompts = {
+type Props = {
     data: IInventory;
     isLoading: boolean;
     isError: boolean;
 }
 
-const Inventory = ({data, isLoading, isError}: InventoryPrompts) => {
+const Inventory = ({ data, isLoading, isError }: Props) => {
     return (
         <div
             className="container-inventory"

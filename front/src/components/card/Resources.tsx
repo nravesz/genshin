@@ -1,11 +1,11 @@
 import { IInventory } from "../inventory"
 import ResourcesElement from "./ResourcesElement";
 
-type ResourcesProps = {
+type Props = {
     resources: IInventory
 }
 
-const Resources = ({resources}: ResourcesProps) => {
+const Resources = ({ resources} : Props) => {
     return (
     <div>
         {Object.keys(resources).map((itemName) => (
