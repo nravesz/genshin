@@ -8,12 +8,12 @@ import { useDispatch } from 'react-redux';
 import { AppDispatch } from '../../redux/store';
 import { addElement } from "../../redux/reducers/InventoryReducer";
 
-interface InventoryElementProps {
+interface Props {
     id:string;
     quantity: number;
 }
 
-const InventoryElement = ({id, quantity}: InventoryElementProps) => {
+const InventoryElement = ({ id, quantity }: Props) => {
     const [value, setValue] = React.useState<string>(quantity.toString());
 	const dispatch = useDispatch<AppDispatch>();
 

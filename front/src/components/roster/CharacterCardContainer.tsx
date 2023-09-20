@@ -8,9 +8,9 @@ import { openModal, setID } from '../../redux/reducers/EditorModalReducer';
 type Props = {
     id: string;
     name: string;
-}
+};
 
-const CharacterCardContainer = ({id, name}: Props) => {
+const CharacterCardContainer = ({ id, name }: Props) => {
     const startLvL = useSelector((state: RootState) => state.editorModal.startLvL);
     const endLvL = useSelector((state: RootState) => state.editorModal.endLvL);
     const dispatch = useDispatch<AppDispatch>();

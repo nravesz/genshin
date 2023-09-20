@@ -1,12 +1,12 @@
 import { Image } from "react-bootstrap";
 import { ITEM_IMAGE_URL } from "../../config";
 
-type ResourcesElementPrompts = {
+type Props = {
     id: string;
     quantity: number;
 };
 
-const ResourcesElement = ({id, quantity}: ResourcesElementPrompts) => {
+const ResourcesElement = ({ id, quantity }: Props) => {
     return (
         <div>
             <p>{quantity}</p>

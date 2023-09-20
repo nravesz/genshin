@@ -1,12 +1,12 @@
 import { ILvL } from ".";
 
-type Prompts = {
+type Props = {
     LvL: number;
     isAscended: boolean;
     setLvL: (lvl: ILvL) => void
 }
 
-const LevelDropdownItem = ({LvL, isAscended, setLvL}: Prompts) => {
+const LevelDropdownItem = ({ LvL, isAscended, setLvL }: Props) => {
 
     return (
         <div
