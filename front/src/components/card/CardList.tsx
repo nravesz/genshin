@@ -17,6 +17,10 @@ const CardList= ({ characters, resources }: Props) => {
                 <Card
                     key={character.id}
                     id={character.id}
+                    startLvL={character.startLvL}
+                    startIsAscended={character.startIsAscended}
+                    endLvL={character.endLvL}
+                    endIsAscended={character.endIsAscended}
                     name={character.id}
                     resources={resources.get(character.id) as IInventory}
                 />

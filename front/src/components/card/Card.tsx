@@ -12,11 +12,19 @@ import "./styles/Card.scss";
 type Props = {
     name: string;
     id: string;
+    startLvL: number;
+    startIsAscended: boolean;
+    endLvL: number;
+    endIsAscended: boolean;
     resources: IInventory;
 };
 
 
-const Card = ({ name, id, resources }: Props) => {const dispatch = useDispatch<AppDispatch>();
+const Card = ({ name, id,
+    startLvL, startIsAscended,
+    endLvL, endIsAscended,
+    resources
+}: Props) => {const dispatch = useDispatch<AppDispatch>();
     
     async function deleteCharacter(id: string) {
         await axios.delete("http://localhost:3001/characters", {
@@ -34,8 +42,9 @@ const Card = ({ name, id, resources }: Props) => {const dispatch = useDispatch<A
             <Button
                 onClick={() => deleteCharacter(id)}
             >
-                close
+                x
             </Button>
+            <p>{startLvL} "---v" {endLvL}</p>
             <CharacterImage
                 id={id}
             />
