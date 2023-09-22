@@ -1,5 +1,11 @@
+@import "../../../styles/colors.scss";
+
 .card-div {
     width: 30%;
-    // background-color: aqua;
+    background-color: $primary-color;
+    border-radius: 10px;
 }
 
+.image {
+    background-color: $secondary-color;
+}
