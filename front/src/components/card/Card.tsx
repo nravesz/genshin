@@ -1,5 +1,5 @@
 import axios from "axios";
-import { Button } from "react-bootstrap";
+import { CloseButton } from "react-bootstrap";
 import { CharacterImage, Resources } from ".";
 import { IInventory } from "../inventory"
 
@@ -8,6 +8,7 @@ import { AppDispatch } from '../../redux/store';
 import { needsUpdate } from "../../redux/reducers/CardListReducer";
 
 import "./styles/Card.scss";
+import "../../styles/buttons.scss"
 
 type Props = {
     name: string;
@@ -39,15 +40,23 @@ const Card = ({ name, id,
         <div
             className="card-div"
         >
-            <Button
-                onClick={() => deleteCharacter(id)}
+            <div
+                className="name-div"
             >
-                x
-            </Button>
+                {name}
+            </div>
+
+            <CloseButton
+                onClick={() => deleteCharacter(id)}
+                className="close-button"
+            />
+
             <p>{startLvL} "---v" {endLvL}</p>
+
             <CharacterImage
                 id={id}
             />
+
             <Resources
                 resources={resources}
             />
