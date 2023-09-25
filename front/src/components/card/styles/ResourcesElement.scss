@@ -1,0 +1,28 @@
+@import "../../../styles/colors.scss";
+
+$radius: 7px;
+
+.element-div {
+    border-radius: 7px;
+    padding: 10px;
+}
+
+.quantity-div {
+    flex: 1;
+    background-color: black;
+    text-align: center;
+    border-start-end-radius: $radius;
+    border-start-start-radius: $radius;
+}
+
+.image-div {
+    background-color: $background;
+    border-end-end-radius: $radius;
+    border-end-start-radius: $radius;
+}
+
+.element-image {
+    width: 50px;
+    height: 50px;
+    object-fit: contain;
+}
