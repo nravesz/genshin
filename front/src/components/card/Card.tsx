@@ -40,25 +40,43 @@ const Card = ({ name, id,
         <div
             className="card-div"
         >
+                <div
+                    className="name-div"
+                >
+                    {name}
+                </div>
+
             <div
-                className="name-div"
+                className="info-div"
             >
-                {name}
+                <div
+                    className="info-element-div"
+                >
+                    <CharacterImage
+                        id={id}
+                    />
+                </div>
+
+                <div
+                    className="info-element-div"
+                >
+                    <div
+                        className="level-text"
+                    >
+                        Level
+                    </div>
+                    <div>{startLvL} "---v" {endLvL}</div>
+                    <div className="arrow" />
+                </div>
             </div>
+            
+            <Resources
+                resources={resources}
+            />
 
             <CloseButton
                 onClick={() => deleteCharacter(id)}
                 className="close-button"
-            />
-
-            <p>{startLvL} "---v" {endLvL}</p>
-
-            <CharacterImage
-                id={id}
-            />
-
-            <Resources
-                resources={resources}
             />
         </div>
     );
