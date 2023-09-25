@@ -10,6 +10,10 @@ import { needsUpdate } from "../../redux/reducers/CardListReducer";
 import "./styles/Card.scss";
 import "../../styles/buttons.scss"
 
+import { FaArrowRightLong } from 'react-icons/fa6';
+import { PiStarFourBold } from 'react-icons/pi';
+
+
 type Props = {
     name: string;
     id: string;
@@ -65,11 +69,20 @@ const Card = ({ name, id,
                     >
                         Level
                     </div>
-                    <div>{startLvL} "---v" {endLvL}</div>
-                    <div className="arrow" />
+                    <div
+                        className="level-text"
+                    >
+                        {startLvL}
+                        {startIsAscended ? <PiStarFourBold /> : null}
+                        <FaArrowRightLong className="icon" />
+                        {endLvL}
+                        {endIsAscended ? <PiStarFourBold /> : null}
+                    </div>
                 </div>
             </div>
             
+            <hr className="divider" />
+
             <Resources
                 resources={resources}
             />

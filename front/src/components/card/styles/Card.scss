@@ -41,7 +41,19 @@
 }
 
 .level-text {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
     color: $background;
     font-size: 15px;
     font-weight: bold;
+    margin-right: 5px;
+}
+
+.icon {
+    margin: 7px;
+}
+
+.divider {
+    margin: 10px;
 }
