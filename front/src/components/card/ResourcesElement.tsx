@@ -9,7 +9,7 @@ type Props = {
 
 const ResourcesElement = ({ id, quantity }: Props) => {
     return (
-        <div>
+        <div className="element-div">
             <div
                 className="quantity-div"
             >
