@@ -12,23 +12,27 @@ const Home = () => {
 
     return (
         <div>
-            <Button
-                onClick={() => {
-                    dispatch(setComponent('characters'));
-                    dispatch(openModal());
-                }}
-            >
-                Add character
-            </Button>
+            <div className="buttons-div" >
+                <Button
+                    className="button"
+                    onClick={() => {
+                        dispatch(setComponent('characters'));
+                        dispatch(openModal());
+                    }}
+                >
+                    Add character
+                </Button>
 
-            <Button
-                onClick={() => {
-                    dispatch(setComponent('inventory'));
-                    dispatch(openModal());
-                }}
-            >
-                Manage inventory
-            </Button>
+                <Button
+                    className="button"
+                    onClick={() => {
+                        dispatch(setComponent('inventory'));
+                        dispatch(openModal());
+                    }}
+                >
+                    Manage inventory
+                </Button>
+            </div>
 
             <CardListContainer />
         </div>
