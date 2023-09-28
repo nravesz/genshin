@@ -1,0 +1,22 @@
+@import "colors.scss";
+
+.close-button {
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    background-color: $delete-button;
+    border-radius: 50%;
+}
+
+.normal-button {
+    background-color: $primary-color;
+    opacity: 1;
+    border-radius: 40px;
+    border-color: transparent;
+}
+
+.normal-button:hover {
+    background-color: $primary-color;
+    opacity: 0.8;
+    border-color: transparent;
+}

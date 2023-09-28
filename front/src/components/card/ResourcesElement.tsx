@@ -1,5 +1,6 @@
 import { Image } from "react-bootstrap";
 import { ITEM_IMAGE_URL } from "../../config";
+import "./styles/ResourcesElement.scss";
 
 type Props = {
     id: string;
@@ -8,11 +9,18 @@ type Props = {
 
 const ResourcesElement = ({ id, quantity }: Props) => {
     return (
-        <div>
-            <p>{quantity}</p>
-            <Image
-                src={`${ITEM_IMAGE_URL}/${id}.png`}
-            />
+        <div className="element-div">
+            <div
+                className="quantity-div"
+            >
+                {quantity}
+            </div>
+            <div className="image-div">
+                <Image
+                    src={`${ITEM_IMAGE_URL}/${id}.png`}
+                    className="element-image"
+                />
+            </div>
         </div>
     );
 };

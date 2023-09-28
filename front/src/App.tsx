@@ -1,4 +1,4 @@
-import Home from './components/Home';
+import Home from './components/home/Home';
 import MenuModal from './components/menuModal/MenuModal';
 import {
   QueryClient,
