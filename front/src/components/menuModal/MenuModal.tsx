@@ -1,11 +1,8 @@
-import React from 'react';
-import Button from 'react-bootstrap/Button';
-import Modal from 'react-bootstrap/Modal';
+import { Button, Modal } from 'react-bootstrap';
 import { Scrollbars } from 'react-custom-scrollbars-2';
-import { useQuery } from 'react-query';
 
 import { RosterContainer } from '../roster';
-import { InventoryContainer, IInventory, fetchInventory } from '../inventory';
+import { InventoryContainer } from '../inventory';
 
 import { useSelector, useDispatch } from 'react-redux';
 import { RootState, AppDispatch } from '../../redux/store';
@@ -33,7 +30,9 @@ const MenuModal = () => {
 			size="lg"
 		>
 			<Modal.Header className="modal-header">
-				<Modal.Title>Modal title</Modal.Title>
+				<Modal.Title>
+					{component === 'characters' ? 'Characters' : 'Inventory'}
+				</Modal.Title>
 			</Modal.Header>
 	
 			<Scrollbars
