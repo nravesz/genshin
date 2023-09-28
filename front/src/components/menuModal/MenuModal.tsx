@@ -11,6 +11,8 @@ import { useSelector, useDispatch } from 'react-redux';
 import { RootState, AppDispatch } from '../../redux/store';
 import { closeModal, updateInventory } from '../../redux/reducers/MenuModalReducer';
 
+import "./styles/Modal.scss";
+
 interface Components {
     [key: string]: JSX.Element;
   }
@@ -30,9 +32,7 @@ const MenuModal = () => {
 			show={modalState}
 			size="lg"
 		>
-			<Modal.Header
-				closeButton
-			>
+			<Modal.Header className="modal-header">
 				<Modal.Title>Modal title</Modal.Title>
 			</Modal.Header>
 	
@@ -40,25 +40,25 @@ const MenuModal = () => {
 				style={{ height: '500px'}}
 			>
 				<Modal.Body
-					className='modal-characters-body'
+					className='modal-body'
 				>
                     {components[component]}
 				</Modal.Body>
 			</Scrollbars>
 	
-			<Modal.Footer>
+			<Modal.Footer className="modal-footer">
 				<Button
-					variant="secondary"
 					onClick={() => dispatch(closeModal())}
+					className="button"
 				>Close</Button>
 				<Button
-					variant="primary"
 					onClick={async () => {
 						if (component === 'inventory') {
 							await dispatch(updateInventory(true))
 						}
 						dispatch(closeModal());
 					}}
+					className="button"
 				>
 					Save changes
 				</Button>
