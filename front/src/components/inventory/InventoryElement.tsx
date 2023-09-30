@@ -44,7 +44,7 @@ const InventoryElement = ({ id, quantity }: Props) => {
 
             <input
                 //type="number"
-                className="inventory-form"
+                className="form"
                 value={value}
                 onChange={handleValueChange}
                 onBlur={handleBlur}
