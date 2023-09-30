@@ -17,7 +17,7 @@
     background: linear-gradient(135deg,$background 10%, $secondary-color 100%);
     box-shadow: 0px 1px 5px black;
     padding: 3%;
-    color: gainsboro;
+    color: $font-color;
     font-size: 20px;
     font-weight: bold;
 }

@@ -1,0 +1,24 @@
+@import "../../../styles/colors.scss";
+@import "../../../styles/buttons.scss";
+
+.modal-title {
+    color: $font-color;
+};
+
+.modal-header {
+    background-color: $background;
+    border: 0px;
+}
+
+.modal-footer {
+    background-color: $background;
+    border: 0px;
+}
+
+.modal-body {
+    background-color: $background
+}
+
+.button {
+    @extend .normal-button;
+}
