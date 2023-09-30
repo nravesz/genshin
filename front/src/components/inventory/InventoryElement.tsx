@@ -36,10 +36,12 @@ const InventoryElement = ({ id, quantity }: Props) => {
         <div
             className="inventory-element"
         >
+
             <Image
                 className="inventory-image"
                 src={`${ITEM_IMAGE_URL}/${id}.png`}
             />
+
             <input
                 //type="number"
                 className="inventory-form"
