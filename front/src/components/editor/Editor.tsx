@@ -9,12 +9,20 @@ const Editor = () => {
     const dispatch = useDispatch<AppDispatch>();
 
     const handleStartLvLChange = (newStartLvL: ILvL) => {
+        if (newStartLvL.LvL > endLvL.LvL || 
+            (newStartLvL.LvL === endLvL.LvL && newStartLvL.isAscended && !endLvL.isAscended)) {
+            dispatch(setEndLvL(newStartLvL));
+        }
         dispatch(setStartLvL(newStartLvL));
-      };
+    };
     
-      const handleEndLvLChange = (newEndLvL: ILvL) => {
+    const handleEndLvLChange = (newEndLvL: ILvL) => {
+        if (startLvL.LvL > newEndLvL.LvL ||
+            (startLvL.LvL === newEndLvL.LvL && startLvL.isAscended && !newEndLvL.isAscended)) {
+            dispatch(setStartLvL(newEndLvL));
+        }
         dispatch(setEndLvL(newEndLvL));
-      };
+    };
 
     return (
         <div>
