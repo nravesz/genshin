@@ -3,6 +3,8 @@ import { RootState, AppDispatch } from '../../redux/store';
 import { useSelector, useDispatch } from 'react-redux';
 import { setStartLvL, setEndLvL } from '../../redux/reducers/EditorModalReducer';
 
+import "./styles/Editor.scss";
+
 const Editor = () => {
     const startLvL = useSelector((state: RootState) => state.editorModal.startLvL);
     const endLvL = useSelector((state: RootState) => state.editorModal.endLvL);
@@ -25,15 +27,22 @@ const Editor = () => {
     };
 
     return (
-        <div>
-            <LevelDropdown
-                LvL={startLvL}
-                setLvL={handleStartLvLChange}
-            />
-            <LevelDropdown
-                LvL={endLvL}
-                setLvL={handleEndLvLChange}
-            />
+        <div className="editor-div">
+            <div className="dropdown-div" >
+                <div className="dropdown-tag" > Current </div>
+                <LevelDropdown
+                    LvL={startLvL}
+                    setLvL={handleStartLvLChange}
+                />
+            </div>
+
+            <div className="dropdown-div" >
+                <div className="dropdown-tag" > Desired </div>
+                <LevelDropdown
+                    LvL={endLvL}
+                    setLvL={handleEndLvLChange}
+                />
+            </div>
         </div>
 
     )
