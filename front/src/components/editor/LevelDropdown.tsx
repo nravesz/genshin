@@ -12,7 +12,7 @@ type Props = {
 const LevelDropdown = ({ LvL, setLvL }: Props) => {
     return (
         <Dropdown>
-            <Dropdown.Toggle variant="success" id="dropdown-basic">
+            <Dropdown.Toggle className="dropdown-toggle-button" id="dropdown-basic">
                 {LvL.LvL} {LvL.isAscended ? "*" : ""}
             </Dropdown.Toggle>
             <Dropdown.Menu className="dropdown-menu">
