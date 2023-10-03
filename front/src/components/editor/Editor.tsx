@@ -29,7 +29,7 @@ const Editor = () => {
     return (
         <div className="editor-div">
             <div className="dropdown-div" >
-                <div className="dropdown-tag" > Current </div>
+                <div className="dropdown-title" > Current </div>
                 <LevelDropdown
                     LvL={startLvL}
                     setLvL={handleStartLvLChange}
@@ -37,7 +37,7 @@ const Editor = () => {
             </div>
 
             <div className="dropdown-div" >
-                <div className="dropdown-tag" > Desired </div>
+                <div className="dropdown-title" > Desired </div>
                 <LevelDropdown
                     LvL={endLvL}
                     setLvL={handleEndLvLChange}
