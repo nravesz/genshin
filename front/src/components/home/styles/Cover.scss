@@ -1,0 +1,45 @@
+@import "../../../styles/colors.scss";
+
+.principal-div {
+    position: relative;
+    width: 100%;
+    height: 200px;
+    display: flex;
+    flex-direction: row;
+};
+
+.logo-div {
+    background-color: $primary-color;
+    display: flex;
+    flex: 1;
+    height: 100%;
+}
+
+.logo-image {
+    height: 90%;
+    object-fit: contain;
+    margin: 10px;
+};
+
+.character-div {
+    height: 100%;
+}
+
+.character-image {
+    height: 100%;
+    object-fit: contain
+}
+
+// .divider {
+//     position: absolute;
+//     background-color: blue;
+//     width: 1000px;
+//     height: 1000px;
+// };
+
+.logo-div::before .divider {
+    position: absolute;
+    background-color: blue;
+    width: 1000px;
+    height: 1000px;
+}
