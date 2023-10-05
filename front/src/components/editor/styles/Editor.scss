@@ -1,0 +1,21 @@
+@import "../../../styles/colors.scss";
+
+.editor-div {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-evenly;
+};
+
+.dropdown-div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+};
+
+.dropdown-title {
+    font-weight: bold;
+    color: $font-color;
+    text-align: center;
+};

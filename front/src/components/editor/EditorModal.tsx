@@ -12,6 +12,7 @@ import { closeModal as editorCloseModal,
 import { closeModal as menusCloseModal } from '../../redux/reducers/MenuModalReducer';
 import { needsUpdate } from '../../redux/reducers/CardListReducer';
 
+import "../../styles/buttons.scss";
 
 const EditorModal = () => {
     const queryClient = useQueryClient();
@@ -59,7 +60,7 @@ const EditorModal = () => {
             <Modal.Header
                 closeButton
                 >
-                <Modal.Title>Modal title</Modal.Title>
+                <Modal.Title>Pick the level</Modal.Title>
             </Modal.Header>
 
             <Modal.Body>
@@ -68,13 +69,13 @@ const EditorModal = () => {
 
             <Modal.Footer>
                 <Button
-                    variant="secondary"
+                    className="normal-button"
                     onClick={() => handleCloseButton()}
                 >
                     Close
                 </Button>
                 <Button
-                    variant="primary"
+                    className="normal-button"
                     onClick={async () => {
                         handleSaveButton(id, startLvL, endLvL);
                     }}
