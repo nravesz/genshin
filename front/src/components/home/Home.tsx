@@ -1,6 +1,4 @@
 import Button from 'react-bootstrap/Button';
-import Logo from './Logo';
-import Cover from './Cover';
 import Banner from './Banner';
 
 import { useDispatch } from 'react-redux';
@@ -16,11 +14,7 @@ const Home = () => {
     return (
         <div>
             <Banner />
-
-            {/* <Cover /> */}
-
-            {/* <Logo /> */}
-
+            
             <div className="buttons-div" >
                 <Button
                     className="button"
