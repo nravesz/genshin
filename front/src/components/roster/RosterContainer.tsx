@@ -5,7 +5,7 @@ import { Roster } from ".";
 import './styles/CharacterRoster.scss';
 
 const fetchCharacters = async () => {
-    const { data } = await axios.get("http://localhost:3001/roster")
+    const { data } = await axios.get(`${process.env.REACT_APP_API_URL}/roster`);
     return data.data;
 };
 
