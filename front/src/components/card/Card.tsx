@@ -32,7 +32,7 @@ const Card = ({ name, id,
 }: Props) => {const dispatch = useDispatch<AppDispatch>();
     
     async function deleteCharacter(id: string) {
-        await axios.delete("http://localhost:3001/characters", {
+        await axios.delete(`${process.env.REACT_APP_API_URL}/characters`, {
             data: {
                 id: id
             }

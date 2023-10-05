@@ -11,14 +11,14 @@ import { RootState, AppDispatch } from '../../redux/store';
 import { alreadyUpdated } from '../../redux/reducers/CardListReducer';
 
 export const fetchCharacters = async () => {
-    const response = await axios.get("http://localhost:3001/characters");
+    const response = await axios.get(`${process.env.REACT_APP_API_URL}/characters`);
     return response.data.data;
 };
 
 export const fetchInventories = async (characterData: Array<ICharacterLvL>) => {
     const inventories: Map<string, IInventory> = new Map();
     for (let i = 0; i < characterData.length; i++) {
-        const response = await axios.get("http://localhost:3001/characters/resources", {
+        const response = await axios.get(`${process.env.REACT_APP_API_URL}/characters/resources`, {
             params: {
                 "id": characterData[i].id,
                 "startLvL": characterData[i].startLvL,

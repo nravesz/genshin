@@ -30,7 +30,7 @@ const EditorModal = () => {
         endIsAscended: boolean
     }) => {
         queryClient.invalidateQueries(['userCharacters', "inventories"]);
-        return axios.post(`http://localhost:3001/characters`, characterData);
+        return axios.post(`${process.env.REACT_APP_API_URL}/characters`, characterData);
     });
 
     async function handleSaveButton(id: string, startLvL: ILvL, endLvL: ILvL) {

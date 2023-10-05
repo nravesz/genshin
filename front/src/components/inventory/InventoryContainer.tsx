@@ -16,7 +16,7 @@ export interface IInventory {
 };
 
 export async function fetchInventory () {
-    const response = await axios.get("http://localhost:3001/inventories");
+    const response = await axios.get(`${process.env.REACT_APP_API_URL}/inventories`);
     return response.data.data;
 };
 
@@ -50,7 +50,7 @@ const InventoryContainer = () => {
     }, [update]);
     
     async function updateData () {
-        const response = await axios.put("http://localhost:3001/inventories", {
+        const response = await axios.put(`${process.env.REACT_APP_API_URL}/inventories`, {
             items: dataUpdated
         });
         await inventoryRefetch();
